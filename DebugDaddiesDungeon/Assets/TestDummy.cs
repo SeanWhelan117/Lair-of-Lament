@@ -22,6 +22,7 @@ public class TestDummy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Collided");
             // do whatever
         }
     }

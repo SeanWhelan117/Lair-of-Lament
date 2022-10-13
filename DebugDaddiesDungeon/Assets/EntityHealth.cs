@@ -10,10 +10,10 @@ public class EntityHealth : MonoBehaviour
 
     private void Start()
     {
-        //health = entity.Get
+        health = entity.GetComponent<PlayerScriptSasa>().health;
     }
 
-    void entityTakesDamage(short t_health, short t_damage)
+    public void entityTakesDamage(short t_health, short t_damage)
     {
         t_health -= t_damage;
         if (isEntityDead())
@@ -21,7 +21,8 @@ public class EntityHealth : MonoBehaviour
             Destroy(entity);
         }
 
-        //entity.health = t_health;
+        entity.GetComponent<PlayerScriptSasa>().health = t_health;
+        health = t_health;
     }
 
     bool isEntityDead()

@@ -14,7 +14,7 @@ public class NPCHealth : MonoBehaviour
 {
     public GameObject npc;
 
-    private short health;
+    public short health;
 
     private void Start()
     {

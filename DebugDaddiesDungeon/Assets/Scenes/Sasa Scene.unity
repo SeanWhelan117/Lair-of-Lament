@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 663183548}
   - component: {fileID: 663183547}
   - component: {fileID: 663183546}
-  - component: {fileID: 663183545}
+  - component: {fileID: 663183550}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -227,19 +227,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &663183545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663183544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eacd0f4dc777e0049b489704c5551747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entity: {fileID: 663183544}
 --- !u!114 &663183546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7790671a6e01e034e9a00ae324859a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 100
+  damage: 10
 --- !u!70 &663183547
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -336,3 +325,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663183550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663183544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02284ce80d9a7634bb3547ba792d26d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  npcHealth: {fileID: 0}

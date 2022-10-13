@@ -12,6 +12,7 @@ public class PlayerScriptSasa : MonoBehaviour
     public PlayerScriptSasa player;
 
     public short health = 100; // Base HP set for player 
+    public short damage = 10; // Base damage for the player
 
 
     public void playerTakesDamage(short t_damage) // takes in the damage, takes it away from players health

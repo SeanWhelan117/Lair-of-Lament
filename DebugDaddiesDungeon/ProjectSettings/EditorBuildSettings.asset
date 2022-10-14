@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: a67ac02ee48fc6d46bd0ad45444ef402
+  - enabled: 1
+    path: Assets/Scenes/Adams Scene.unity
+    guid: 509e19bf952e0674593e0cc93e6b5790
+  - enabled: 1
+    path: Assets/Scenes/Filips Scene.unity
+    guid: 3dd76e69d302fd047a29b68be0a9104a
+  - enabled: 1
+    path: Assets/Scenes/Sasa Scene.unity
+    guid: e503b3f3db5eeb746be67a0fc1352ee4
+  - enabled: 1
+    path: Assets/Scenes/Sean Scene.unity
+    guid: dedd14fb4b70a2145af8169bdf6eabd5
   m_configObjects: {}

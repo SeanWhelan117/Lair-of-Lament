@@ -8,6 +8,7 @@ public class MoveEnemy : MonoBehaviour
 
     public float speed = 2.0f;
     private Vector2 pos;
+    public short damage = 5;
 
 
     private void FixedUpdate()

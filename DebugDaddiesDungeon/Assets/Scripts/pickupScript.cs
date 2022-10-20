@@ -21,18 +21,16 @@ public class pickupScript : MonoBehaviour
             PickUp();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Collided with the Player brother");
             pickupAllowed = true;
         }
-
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Pickup")
         {
@@ -43,6 +41,6 @@ public class pickupScript : MonoBehaviour
 
     private void PickUp()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); //Temp code - We can do whatever we want with pickup
     }
 }

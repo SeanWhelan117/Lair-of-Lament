@@ -28,38 +28,40 @@ public class playerHUD : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
         }
 
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            if(currentStamina <= maxStamina)
+            Debug.Log("WAlking");
+            if (currentStamina <= maxStamina)
             {
                 currentStamina += 1.0f * Time.deltaTime;
                 loseStamina(currentStamina);
+                staminaBar.setStamina(currentStamina);
             }
         }
 
         else if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if(currentStamina > 0)
+            if (currentStamina > 0)
             {
                 currentStamina -= 10.0f * Time.deltaTime;
                 loseStamina(currentStamina);
             }
         }
 
-        //else
-        //{
-        //    if(currentStamina <= 100)
-        //    {
-        //        currentStamina += 2.0f * Time.deltaTime;
-        //    }
-        //}
+        else
+        {
+            if (currentStamina <= 100)
+            {
+                currentStamina += 2.0f * Time.deltaTime;
+            }
+        }
 
 
 

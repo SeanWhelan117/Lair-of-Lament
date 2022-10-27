@@ -8,62 +8,108 @@ public class playerHUD : MonoBehaviour
     public int maxHealth = 5;
     public int currentHealth;
 
-    float currentStamina;
-    float maxStamina = 100;
-
     public Healthbar healthbar;
-    public StaminaBar staminaBar;
+    public Slider staminaBar;
 
-    public Slider staminaSlider;
+    public float stamina = 0;
+    public float maxStamina = 100;
+    public float staminaIncrease = 3;
+    public float staminaDrain = 3;
 
+    [Header("Player stuff")]
+    public Rigidbody2D rb;
+    public float jumpForce = 0;
+    public int jumpCount = 0;
+    public int allowedJumps = 0;
+    public float gravityScale = 0;
+    public float fallingGravityScale = 0;
+    public bool isGrounded = false;
+    public float playerSpeed = 5.0f;
+    public bool m_FacingRight = true;
+    public bool m_FacingLeft = false;
+    Vector2 savedlocalScale;
+    //public Animator animator;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         currentHealth = maxHealth;
         healthbar.setMaxHealth(maxHealth);
 
-        currentStamina = maxStamina;
-        staminaBar.setMaxStamina(maxStamina);
+        maxStamina = stamina;
+        staminaBar.maxValue = maxStamina;
+
+        rb = GetComponent<Rigidbody2D>();
+        savedlocalScale = transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+
+
+
+        ////////////////////////////////////////////////////////////////////////////            <<--------- MOVEMENT
+        var horizontalInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(horizontalInput * playerSpeed, rb.velocity.y);
+
+        if (rb.velocity.x > 0.001f)
         {
-            Debug.Log("WAlking");
-            if (currentStamina <= maxStamina)
+            //animator.SetFloat("speed", Mathf.Abs(playerSpeed));
+            transform.localScale = new Vector2(savedlocalScale.x, savedlocalScale.y);
+            m_FacingLeft = false;
+            m_FacingRight = true;
+            DecreaseEnergy();
+        }
+        else if (rb.velocity.x < -0.001f)
+        {
+            //animator.SetFloat("speed", Mathf.Abs(playerSpeed));
+            transform.localScale = new Vector2(-savedlocalScale.x, savedlocalScale.y);
+            m_FacingLeft = true;
+            m_FacingRight = false;
+            DecreaseEnergy();
+        }
+
+        if (rb.velocity.x == 0.0f)
+        {
+            //animator.SetFloat("speed", Mathf.Abs(0));
+            IncreaseEnergy();
+        }
+
+        ////////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////////            <<--------- JUMPING
+        
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //animator.SetBool("isJumping", true);
+            jumpCount += 1;
+            DecreaseEnergy();
+            if (jumpCount == allowedJumps)
             {
-                currentStamina += 1.0f * Time.deltaTime;
-                loseStamina(currentStamina);
-                staminaBar.setStamina(currentStamina);
+                isGrounded = false;
             }
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftShift))
+        staminaBar.value = stamina;
+        //if(stamina)
+
+        if (rb.velocity.y >= 0)
         {
-            if (currentStamina > 0)
-            {
-                currentStamina -= 10.0f * Time.deltaTime;
-                loseStamina(currentStamina);
-            }
+            rb.gravityScale = gravityScale;
         }
-
-        else
+        else if (rb.velocity.y < 0)
         {
-            if (currentStamina <= 100)
-            {
-                currentStamina += 2.0f * Time.deltaTime;
-            }
+            rb.gravityScale = fallingGravityScale;
         }
-
-
+        ////////////////////////////////////////////////////////////////////////////
 
     }
 
@@ -73,10 +119,18 @@ public class playerHUD : MonoBehaviour
         healthbar.setHealth(currentHealth);
     }
 
-    public void loseStamina(float t_stamina)
+    private void DecreaseEnergy()
     {
-        currentStamina -= t_stamina;
-        staminaBar.setStamina(currentStamina);
+        if(stamina != 0.0f)
+        {
+            stamina -= staminaDrain * Time.deltaTime;
+        }
     }
+
+    private void IncreaseEnergy()
+    {
+        stamina += staminaIncrease * Time.deltaTime;
+    }
+
 
 }

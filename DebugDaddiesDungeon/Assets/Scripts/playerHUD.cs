@@ -116,6 +116,11 @@ public class playerHUD : MonoBehaviour
         }
         ////////////////////////////////////////////////////////////////////////////
 
+        if(currentHealth <= 0)
+        {
+            Debug.Log("The Player Died - Do our restart scene ");
+        }
+
     }
 
     public void TakeDamage(int t_damage)

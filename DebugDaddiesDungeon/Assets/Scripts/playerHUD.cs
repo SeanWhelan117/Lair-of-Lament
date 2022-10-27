@@ -9,6 +9,8 @@ public class playerHUD : MonoBehaviour
     public int currentHealth;
 
     public Healthbar healthbar;
+    public StaminaBar staminaBarScript;
+
     public Slider staminaBar;
 
     public float stamina = 0;
@@ -36,8 +38,8 @@ public class playerHUD : MonoBehaviour
         currentHealth = maxHealth;
         healthbar.setMaxHealth(maxHealth);
 
-        maxStamina = stamina;
-        staminaBar.maxValue = maxStamina;
+        stamina = maxStamina;
+        staminaBarScript.setMaxStamina(stamina);
 
         rb = GetComponent<Rigidbody2D>();
         savedlocalScale = transform.localScale;
@@ -99,7 +101,10 @@ public class playerHUD : MonoBehaviour
         }
 
         staminaBar.value = stamina;
-        //if(stamina)
+        if(stamina >= 20.0f)
+        {
+            playerSpeed = 5.0f;
+        }
 
         if (rb.velocity.y >= 0)
         {
@@ -125,11 +130,26 @@ public class playerHUD : MonoBehaviour
         {
             stamina -= staminaDrain * Time.deltaTime;
         }
+
+        if(stamina <= 0)
+        {
+            stamina = 0.0f;
+            playerSpeed = 2.0f;
+        }
+
+        staminaBarScript.setStamina(stamina);
     }
 
     private void IncreaseEnergy()
     {
         stamina += staminaIncrease * Time.deltaTime;
+
+        if(stamina >= maxStamina)
+        {
+            stamina = maxStamina;
+        }
+
+        staminaBarScript.setStamina(stamina);
     }
 
 

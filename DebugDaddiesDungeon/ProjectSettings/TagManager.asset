@@ -17,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - light
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
   - name: background
     uniqueID: 2814381859
     locked: 0
+  - name: under walkable
+    uniqueID: 1551735583
+    locked: 0
   - name: walkable
     uniqueID: 1717405687
     locked: 0
@@ -59,4 +62,7 @@ TagManager:
     locked: 0
   - name: Dummy
     uniqueID: 1884324057
+    locked: 0
+  - name: light
+    uniqueID: 3635905161
     locked: 0

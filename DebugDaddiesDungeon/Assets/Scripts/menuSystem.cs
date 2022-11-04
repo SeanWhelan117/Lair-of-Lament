@@ -11,7 +11,7 @@ public class menuSystem : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Game Started");
-        SceneManager.LoadScene("Filips Scene");
+        SceneManager.LoadScene("Level");
     }
 
     public void OpenSettings()

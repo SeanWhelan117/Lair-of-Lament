@@ -17,7 +17,7 @@ public class menuSystem : MonoBehaviour
     public void OpenSettings()
     {
         Debug.Log("Settings Opened");
-        SceneManager.LoadScene("Adams Scene");
+        SceneManager.LoadScene("Settings Scene");
     }
 
     public void  QuitGame()

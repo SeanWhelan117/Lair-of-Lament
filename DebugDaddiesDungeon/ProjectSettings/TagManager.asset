@@ -65,6 +65,7 @@ TagManager:
     locked: 0
   - name: light
     uniqueID: 3635905161
+    locked: 0
   - name: UI
     uniqueID: 3534502043
     locked: 0

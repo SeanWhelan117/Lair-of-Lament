@@ -9,6 +9,7 @@ TagManager:
   - Pickup
   - Dummy
   - Wall
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -20,10 +21,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Grunt
+  - Ranged
+  - Brute
+  - Boss
   - 
   - 
   - 

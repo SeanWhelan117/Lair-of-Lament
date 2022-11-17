@@ -37,10 +37,17 @@ public class CameraScript : MonoBehaviour
 	}
 	IEnumerator cameraZoom(float oldSize, float newSize, float time)
 	{
+	
 		float elapsed = 0;
 		while (elapsed <= time)
 		{
-			float speed = 0.5f;
+			float quarterWay = time / 1.5f;
+			float speed;
+			if (quarterWay > elapsed)
+			{
+				speed = 2.0f;
+			}
+			else { speed = 0.3f; }
 			elapsed += Time.deltaTime * speed;
 			float t = elapsed / time;
 			Camera.main.orthographicSize = Mathf.Lerp(oldSize, newSize, t);

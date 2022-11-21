@@ -18,7 +18,30 @@ public class NPCHealth : MonoBehaviour
 
     private void Start()
     {
-        //health = npc.health;  Placeholder for assigning health when the npc will be created
+        assignHealthToNPC(); // This will assign health to the NPC, depending on the type of enemy!
+    }
+
+    public void assignHealthToNPC() // DO NOT EDIT LAYERS
+    {
+        if (npc.layer == 10) // 10th layer is GRUNT !!!!DO NOT EDIT!!!!
+        {
+            health = 10;
+        }
+
+        if (npc.layer == 11) // 11th layer is RANGED !!!!DO NOT EDIT!!!!
+        {
+            health = 15;
+        }
+
+        if (npc.layer == 12) // 12th layer is BRUTE !!!!DO NOT EDIT!!!!
+        {
+            health = 20;
+        }
+
+        if (npc.layer == 13) // 13th layer is BOSS !!!!DO NOT EDIT!!!!
+        {
+            health = 50;
+        }
     }
 
     public void NPCTakesDamage(short t_health, short t_damage) // takes in the damage done by the player and the NPCs health

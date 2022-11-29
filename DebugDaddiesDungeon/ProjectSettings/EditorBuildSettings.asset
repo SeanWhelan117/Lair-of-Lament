@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a67ac02ee48fc6d46bd0ad45444ef402
   - enabled: 0
-    path: Assets/Scenes/Adams Scene.unity
+    path: 
     guid: 509e19bf952e0674593e0cc93e6b5790
   - enabled: 0
     path: Assets/Scenes/Filips Scene.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 22e91aa5557d0d44cb1d7f704ad76b6e
+  - enabled: 1
+    path: Assets/Scenes/Adams Scene 1.unity
+    guid: 2183fe5f7d5805845af682352237f4e1
   m_configObjects: {}

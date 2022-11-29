@@ -10,6 +10,7 @@ TagManager:
   - Dummy
   - Wall
   - NPC
+  - door1
   layers:
   - Default
   - TransparentFX
@@ -20,12 +21,12 @@ TagManager:
   - 
   - 
   - light
-  - 
+  - player
   - Grunt
   - Ranged
   - Brute
   - Boss
-  - 
+  - door
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 2814381859
+    locked: 0
+  - name: detail
+    uniqueID: 1284983671
     locked: 0
   - name: under walkable
     uniqueID: 1551735583

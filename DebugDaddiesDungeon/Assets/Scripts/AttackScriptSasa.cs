@@ -7,12 +7,16 @@ public class AttackScriptSasa : MonoBehaviour
 
     bool didPlayerAttack = false;
 
+   // public Animator animator;
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0)) // Just for debugging to see it works
         {
             didPlayerAttack = true; // Triggers to true when a player presses left mouse button, used for detecting attacks
+           // animator.SetBool("attack", true);
+           // StartCoroutine(attackEnd());
         }
     }
 
@@ -38,4 +42,7 @@ public class AttackScriptSasa : MonoBehaviour
             }
         }
     }
+
+
+    
 }

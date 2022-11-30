@@ -3,23 +3,30 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Button
+  - Ground
+  - Pickup
+  - Dummy
+  - Wall
+  - NPC
+  - door1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - background
   - Water
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - light
+  - player
+  - Grunt
+  - Ranged
+  - Brute
+  - Boss
+  - door
   - 
   - 
   - 
@@ -40,4 +47,34 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 2814381859
+    locked: 0
+  - name: detail
+    uniqueID: 1284983671
+    locked: 0
+  - name: under walkable
+    uniqueID: 1551735583
+    locked: 0
+  - name: walkable
+    uniqueID: 1717405687
+    locked: 0
+  - name: player
+    uniqueID: 945237963
+    locked: 0
+  - name: Pickup
+    uniqueID: 1159143807
+    locked: 0
+  - name: Dummy
+    uniqueID: 1884324057
+    locked: 0
+  - name: light
+    uniqueID: 3635905161
+    locked: 0
+  - name: UI
+    uniqueID: 3534502043
+    locked: 0
+  - name: testing
+    uniqueID: 3425076925
     locked: 0

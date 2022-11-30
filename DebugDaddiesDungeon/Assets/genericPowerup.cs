@@ -68,10 +68,10 @@ public class genericPowerup : MonoBehaviour
             powerUp.active = false;
 
             //Cant set this anywhere else as there would be 2 collision checks and unity doesnt like that
-            Player.gameObject.GetComponent<playerHUD>().allowedJumps += 4;
-            Player.gameObject.GetComponent<playerHUD>().jumpForce = 16;
-            Player.gameObject.GetComponent<playerHUD>().gravityScale = 6;
-            Player.gameObject.GetComponent<playerHUD>().resetJump = true;
+            Player.gameObject.GetComponent<PlayerFifi>().allowedJumps += 4;
+            Player.gameObject.GetComponent<PlayerFifi>().jumpForce = 16;
+            Player.gameObject.GetComponent<PlayerFifi>().gravityScale = 6;
+            Player.gameObject.GetComponent<PlayerFifi>().resetJump = true;
         }
     }
 }

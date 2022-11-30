@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
 TagManager:
   serializedVersion: 2
   tags:
@@ -9,7 +10,6 @@ TagManager:
   - Dummy
   - Wall
   - NPC
-  - Projectile
   - door1
   layers:
   - Default
@@ -26,7 +26,6 @@ TagManager:
   - Ranged
   - Brute
   - Boss
-  - Projectile
   - door
   - 
   - 

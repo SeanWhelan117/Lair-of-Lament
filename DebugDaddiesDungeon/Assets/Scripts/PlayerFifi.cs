@@ -37,6 +37,8 @@ public class PlayerFifi : MonoBehaviour
     [SerializeField] private float cooldown = 5;
     private float cooldownTimer = 5;
 
+    public short damage = 10; // Base damage for the player
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -111,10 +113,12 @@ public class PlayerFifi : MonoBehaviour
         }
         ////////////////////////////////////////////////////////////////////////////
 
-        if (currentHealth <= 0)
+
+        //currently reloading the main game scene again we can change this to do anything we need it to - Adam
+        if (isPlayerDead() == true)
         {
+            SceneManager.LoadScene("Level"); 
             Debug.Log("The Player Died - Do our restart scene ");
-            SceneManager.LoadScene("Adams Scene 1"); //currently reloading my level for now, we can restart the entire game here.
         }
 
         if (resetJump == true)
@@ -128,7 +132,30 @@ public class PlayerFifi : MonoBehaviour
     {
         currentHealth -= t_damage;
         healthbar.setHealth(currentHealth);
+
+        if (isPlayerDead())
+        {
+            Destroy(this.gameObject);
+        }
     }
+
+
+
+    bool isPlayerDead() // checks if the player is dead
+    {
+        if (currentHealth <= 0)
+            return true;
+        else
+            return false;
+    }
+
+    //bool isPlayerInRange(GameObject Npc) // Checks if the player is in range to attack the enemy
+    //{
+    //    if ((transform.position.x - Npc.transform.position.x) < 0.5f)
+    //        return true;
+    //    else
+    //        return false;
+    //}
 
     private void DecreaseEnergy()
     {
@@ -174,11 +201,17 @@ public class PlayerFifi : MonoBehaviour
         {
             jumpForce = 12;
             gravityScale = 8;
-
+            resetJump = false;
         }
 
         Debug.Log(cooldownTimer);
+        
+    }
 
+    public void resetTimer()
+    {
+        cooldownTimer = 5;
+        resetJump = true;
     }
 
 }

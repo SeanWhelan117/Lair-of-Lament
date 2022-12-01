@@ -71,7 +71,11 @@ public class genericPowerup : MonoBehaviour
             Player.gameObject.GetComponent<PlayerFifi>().allowedJumps += 4;
             Player.gameObject.GetComponent<PlayerFifi>().jumpForce = 16;
             Player.gameObject.GetComponent<PlayerFifi>().gravityScale = 6;
-            Player.gameObject.GetComponent<PlayerFifi>().resetJump = true;
+
+            //Timer things - Resetting timer so that we can use multiple jump powerups
+            Player.gameObject.GetComponent<PlayerFifi>().resetTimer();
+            //Player.gameObject.GetComponent<PlayerFifi>().resetJumpingValues();
+
         }
     }
 }

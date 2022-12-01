@@ -11,44 +11,70 @@ public class AttackScriptSasa : MonoBehaviour
     bool didPlayerAttack = false;
 
     public Animator animator;
+    public float withinRange = 1.0f;
+    public bool NPCinRange = false;
 
-    
+
     // Update is called once per frame
     void Update()
     {
-        if(didPlayerAttack == false)
+
+        if (!didPlayerAttack)
         {
             playerSavedSpeed = pl.playerSpeed;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0)) // Just for debugging to see it works
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            didPlayerAttack = true; // Triggers to true when a player presses left mouse button, used for detecting attacks
+            didPlayerAttack = true;
             animator.SetBool("attack", true);
             pl.playerSpeed = 0;
             StartCoroutine(attackEnd());
         }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            didPlayerAttack=false;
+
+        }
+
+        if (NPCinRange)
+        {
+            if (NPCinRange && didPlayerAttack)
+            {
+                npc.gameObject.GetComponent<NPCHealth>().NPCTakesDamage(npc.gameObject.GetComponent<NPCHealth>().health, pl.GetComponent<PlayerFifi>().damage);
+                Debug.Log("I was colliding while attacking!");
+                didPlayerAttack = false;
+
+            }
+        }
     }
 
-    bool isPlayerInRange() // Checks if the player is in range to attack the enemy
-    {
-        if ((transform.position.x - npc.transform.position.x) < 0.5f)
-            return true;      
-        else
-            return false;
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //bool isPlayerInRange(GameObject Npc) // Checks if the player is in range to attack the enemy
+    //{
+    //    if ((transform.position.x - Npc.transform.position.x) < withinRange)
+    //        return true;      
+    //    else
+    //        return false;
+    //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
         {
-            if (didPlayerAttack) // Left click for attacking
-            {
-                if (isPlayerInRange())
-                {
-                    npc.GetComponent<NPCHealth>().NPCTakesDamage(npc.GetComponent<NPCHealth>().health, GetComponent<PlayerScriptSasa>().damage);
-                    Debug.Log("I was colliding while attacking!");
-                }
-            }
+            npc = collision.gameObject;
+            NPCinRange = true;
+        }
+        else
+            NPCinRange = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("NPC"))
+        {
+            NPCinRange = false;
         }
     }
 

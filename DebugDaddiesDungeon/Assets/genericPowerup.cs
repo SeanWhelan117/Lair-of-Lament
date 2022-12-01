@@ -12,6 +12,12 @@ public class genericPowerup : MonoBehaviour
 
     public bool movingDown, movingUp;
 
+    public GameObject Player;
+
+    //Timer to reset the double jump effect
+    [SerializeField] private float cooldown = 3;
+    private float cooldownTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +66,12 @@ public class genericPowerup : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             powerUp.active = false;
+
+            //Cant set this anywhere else as there would be 2 collision checks and unity doesnt like that
+            Player.gameObject.GetComponent<PlayerFifi>().allowedJumps += 4;
+            Player.gameObject.GetComponent<PlayerFifi>().jumpForce = 16;
+            Player.gameObject.GetComponent<PlayerFifi>().gravityScale = 6;
+            Player.gameObject.GetComponent<PlayerFifi>().resetJump = true;
         }
     }
 }

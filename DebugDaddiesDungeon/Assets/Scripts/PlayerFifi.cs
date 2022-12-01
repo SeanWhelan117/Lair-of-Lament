@@ -64,7 +64,10 @@ public class PlayerFifi : MonoBehaviour
             transform.localScale = new Vector2(savedlocalScale.x, savedlocalScale.y);
             m_FacingLeft = false;
             m_FacingRight = true;
-            DecreaseEnergy();
+            if (stamina > 10)
+            {
+                DecreaseEnergy();
+            }
         }
         else if (rb.velocity.x < -0.001f)
         {
@@ -72,7 +75,10 @@ public class PlayerFifi : MonoBehaviour
             transform.localScale = new Vector2(-savedlocalScale.x, savedlocalScale.y);
             m_FacingLeft = true;
             m_FacingRight = false;
-            DecreaseEnergy();
+            if (stamina > 10)
+            {
+                DecreaseEnergy();
+            }
         }
 
         if (rb.velocity.x == 0.0f)
@@ -80,6 +86,13 @@ public class PlayerFifi : MonoBehaviour
             animator.SetFloat("speed", Mathf.Abs(0));
             IncreaseEnergy();
         }
+
+       if(stamina >= 11)
+        {
+            playerSpeed = 5.0f;
+        }
+
+
 
         ////////////////////////////////////////////////////////////////////////////
 
@@ -90,6 +103,7 @@ public class PlayerFifi : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             animator.SetBool("isJumping", true);
+            DecreaseEnergyJump();
             jumpCount += 1;
             if (jumpCount == allowedJumps)
             {
@@ -107,9 +121,11 @@ public class PlayerFifi : MonoBehaviour
         }
 
         staminaBar.value = stamina;
-        if (stamina >= 20.0f)
+
+        if (stamina <= 10.0f)
         {
-            playerSpeed = 5.0f;
+            playerSpeed = 2.0f;
+            IncreaseEnergy();
         }
         ////////////////////////////////////////////////////////////////////////////
 
@@ -125,6 +141,8 @@ public class PlayerFifi : MonoBehaviour
         {
             resetJumpingValues();
         }
+
+       
 
     }
 
@@ -171,6 +189,22 @@ public class PlayerFifi : MonoBehaviour
         }
 
         staminaBarScript.setStamina(stamina);
+    }
+
+    private void DecreaseEnergyJump()
+    {
+        staminaDrain = 10;
+        if (stamina != 0.0f)
+        {
+            stamina -= 5;
+            //stamina -= staminaDrain  * Time.deltaTime;
+        }
+
+        if (stamina <= 0)
+        {
+            stamina = 0.0f;
+            playerSpeed = 2.0f;
+        }
     }
 
     private void IncreaseEnergy()

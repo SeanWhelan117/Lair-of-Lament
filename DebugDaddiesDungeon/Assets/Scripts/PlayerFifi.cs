@@ -33,9 +33,10 @@ public class PlayerFifi : MonoBehaviour
     Vector2 savedlocalScale;
     public Animator animator;
     public bool resetJump = false;
-
-    [SerializeField] private float cooldown = 5;
+  
     private float cooldownTimer = 5;
+
+    public short damage = 10; // Base damage for the player
 
     void Start()
     {
@@ -62,7 +63,10 @@ public class PlayerFifi : MonoBehaviour
             transform.localScale = new Vector2(savedlocalScale.x, savedlocalScale.y);
             m_FacingLeft = false;
             m_FacingRight = true;
-            DecreaseEnergy();
+            if (stamina > 5)
+            {
+                DecreaseEnergy();
+            }
         }
         else if (rb.velocity.x < -0.001f)
         {
@@ -70,7 +74,10 @@ public class PlayerFifi : MonoBehaviour
             transform.localScale = new Vector2(-savedlocalScale.x, savedlocalScale.y);
             m_FacingLeft = true;
             m_FacingRight = false;
-            DecreaseEnergy();
+            if (stamina > 5)
+            {
+                DecreaseEnergy();
+            }
         }
 
         if (rb.velocity.x == 0.0f)
@@ -78,6 +85,13 @@ public class PlayerFifi : MonoBehaviour
             animator.SetFloat("speed", Mathf.Abs(0));
             IncreaseEnergy();
         }
+
+       if(stamina >= 10)
+        {
+            playerSpeed = 5.0f;
+        }
+
+
 
         ////////////////////////////////////////////////////////////////////////////
 
@@ -88,6 +102,7 @@ public class PlayerFifi : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             animator.SetBool("isJumping", true);
+            DecreaseEnergyJump();
             jumpCount += 1;
             if (jumpCount == allowedJumps)
             {
@@ -105,16 +120,20 @@ public class PlayerFifi : MonoBehaviour
         }
 
         staminaBar.value = stamina;
-        if (stamina >= 20.0f)
+
+        if (stamina <= 10.0f)
         {
-            playerSpeed = 5.0f;
+            playerSpeed = 2.0f;
+            IncreaseEnergy();
         }
         ////////////////////////////////////////////////////////////////////////////
 
-        if (currentHealth <= 0)
+
+        //currently reloading the main game scene again we can change this to do anything we need it to - Adam
+        if (isPlayerDead() == true)
         {
+            SceneManager.LoadScene("Level"); 
             Debug.Log("The Player Died - Do our restart scene ");
-            SceneManager.LoadScene("Adams Scene 1"); //currently reloading my level for now, we can restart the entire game here.
         }
 
         if (resetJump == true)
@@ -122,12 +141,27 @@ public class PlayerFifi : MonoBehaviour
             resetJumpingValues();
         }
 
+       
+
     }
 
     public void TakeDamage(int t_damage)
     {
         currentHealth -= t_damage;
         healthbar.setHealth(currentHealth);
+
+        if (isPlayerDead())
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    bool isPlayerDead() // checks if the player is dead
+    {
+        if (currentHealth <= 0)
+            return true;
+        else
+            return false;
     }
 
     private void DecreaseEnergy()
@@ -144,6 +178,21 @@ public class PlayerFifi : MonoBehaviour
         }
 
         staminaBarScript.setStamina(stamina);
+    }
+
+    private void DecreaseEnergyJump()
+    {
+        if (stamina != 0.0f)
+        {
+            stamina -= 4;
+        }
+
+        //check to make sure the stamina doesnt go past 0
+        if (stamina <= 0)
+        {
+            stamina = 0.0f;
+            playerSpeed = 2.0f;
+        }
     }
 
     private void IncreaseEnergy()
@@ -167,6 +216,7 @@ public class PlayerFifi : MonoBehaviour
 
     }
 
+    //This function resets the values for jumping back to default after the 5 second timer.
     public void resetJumpingValues()
     {
         cooldownTimer -= Time.deltaTime;
@@ -174,11 +224,18 @@ public class PlayerFifi : MonoBehaviour
         {
             jumpForce = 12;
             gravityScale = 8;
-
+            resetJump = false;
         }
 
         Debug.Log(cooldownTimer);
+        
+    }
 
+    //Function which resets the timer for the double jump pickups.
+    public void resetTimer()
+    {
+        cooldownTimer = 5;
+        resetJump = true;
     }
 
 }

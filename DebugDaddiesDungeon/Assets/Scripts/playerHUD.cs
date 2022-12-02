@@ -34,7 +34,6 @@ public class playerHUD : MonoBehaviour
     public Animator animator;
     public bool resetJump = false;
 
-    [SerializeField] private float cooldown = 5;
     private float cooldownTimer = 5;
 
     void Start()

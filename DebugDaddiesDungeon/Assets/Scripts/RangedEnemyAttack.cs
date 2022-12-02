@@ -14,7 +14,6 @@ public class RangedEnemyAttack : MonoBehaviour
     int bulletSpeed = 6;
 
     public float withinRange = 6;
-    public float rotateSpeed = 200f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,14 +44,13 @@ public class RangedEnemyAttack : MonoBehaviour
         GameObject ProjectClone = Instantiate(Projectile, firepoint.position, firepoint.rotation);
         Rigidbody2D rbProjectile = ProjectClone.GetComponent<Rigidbody2D>();
         rbProjectile.velocity = (Player.transform.position - firepoint.position).normalized * bulletSpeed;
-
     }
 
     //Debugging 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(gameObject.transform.position, 6.0f);
+        Gizmos.DrawWireSphere(gameObject.transform.position, withinRange);
      
     }
 

@@ -33,8 +33,7 @@ public class PlayerFifi : MonoBehaviour
     Vector2 savedlocalScale;
     public Animator animator;
     public bool resetJump = false;
-
-    [SerializeField] private float cooldown = 5;
+  
     private float cooldownTimer = 5;
 
     public short damage = 10; // Base damage for the player
@@ -64,7 +63,7 @@ public class PlayerFifi : MonoBehaviour
             transform.localScale = new Vector2(savedlocalScale.x, savedlocalScale.y);
             m_FacingLeft = false;
             m_FacingRight = true;
-            if (stamina > 10)
+            if (stamina > 5)
             {
                 DecreaseEnergy();
             }
@@ -75,7 +74,7 @@ public class PlayerFifi : MonoBehaviour
             transform.localScale = new Vector2(-savedlocalScale.x, savedlocalScale.y);
             m_FacingLeft = true;
             m_FacingRight = false;
-            if (stamina > 10)
+            if (stamina > 5)
             {
                 DecreaseEnergy();
             }
@@ -87,7 +86,7 @@ public class PlayerFifi : MonoBehaviour
             IncreaseEnergy();
         }
 
-       if(stamina >= 11)
+       if(stamina >= 10)
         {
             playerSpeed = 5.0f;
         }
@@ -157,8 +156,6 @@ public class PlayerFifi : MonoBehaviour
         }
     }
 
-
-
     bool isPlayerDead() // checks if the player is dead
     {
         if (currentHealth <= 0)
@@ -166,14 +163,6 @@ public class PlayerFifi : MonoBehaviour
         else
             return false;
     }
-
-    //bool isPlayerInRange(GameObject Npc) // Checks if the player is in range to attack the enemy
-    //{
-    //    if ((transform.position.x - Npc.transform.position.x) < 0.5f)
-    //        return true;
-    //    else
-    //        return false;
-    //}
 
     private void DecreaseEnergy()
     {
@@ -193,13 +182,12 @@ public class PlayerFifi : MonoBehaviour
 
     private void DecreaseEnergyJump()
     {
-        staminaDrain = 10;
         if (stamina != 0.0f)
         {
-            stamina -= 5;
-            //stamina -= staminaDrain  * Time.deltaTime;
+            stamina -= 4;
         }
 
+        //check to make sure the stamina doesnt go past 0
         if (stamina <= 0)
         {
             stamina = 0.0f;
@@ -228,6 +216,7 @@ public class PlayerFifi : MonoBehaviour
 
     }
 
+    //This function resets the values for jumping back to default after the 5 second timer.
     public void resetJumpingValues()
     {
         cooldownTimer -= Time.deltaTime;
@@ -242,6 +231,7 @@ public class PlayerFifi : MonoBehaviour
         
     }
 
+    //Function which resets the timer for the double jump pickups.
     public void resetTimer()
     {
         cooldownTimer = 5;

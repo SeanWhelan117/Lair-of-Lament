@@ -15,7 +15,6 @@ public class genericPowerup : MonoBehaviour
     public GameObject Player;
 
     //Timer to reset the double jump effect
-    [SerializeField] private float cooldown = 3;
     private float cooldownTimer;
 
     // Start is called before the first frame update

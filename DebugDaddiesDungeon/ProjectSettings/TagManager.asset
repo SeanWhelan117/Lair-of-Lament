@@ -11,6 +11,8 @@ TagManager:
   - Wall
   - NPC
   - door1
+  - Projectile
+  - Portal
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,6 @@ public class AttackScriptSasa : MonoBehaviour
     public float withinRange = 1.0f;
     public bool NPCinRange = false;
 
-
     // Update is called once per frame
     void Update()
     {
@@ -49,15 +48,6 @@ public class AttackScriptSasa : MonoBehaviour
             }
         }
     }
-
-
-    //bool isPlayerInRange(GameObject Npc) // Checks if the player is in range to attack the enemy
-    //{
-    //    if ((transform.position.x - Npc.transform.position.x) < withinRange)
-    //        return true;      
-    //    else
-    //        return false;
-    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

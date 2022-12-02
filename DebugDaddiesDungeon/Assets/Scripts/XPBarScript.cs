@@ -9,19 +9,34 @@ public class XPBarScript : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
+    public int level = 0;
+    public float currentXp;
+    public float requiredXp;
+
     public void setXP(float t_XP)
     {
         slider.value = t_XP;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
-    public void setMaxStamina(float t_XP)
+    public void setMaxXP(float t_XP)
     {
         slider.maxValue = t_XP;
         slider.value = t_XP;
 
         fill.color = gradient.Evaluate(1f);
     }
+
+    public void changeMaxValue(int value)
+    {
+        slider.maxValue += value;
+    }
+
+    public void resetMaxValue()
+    {
+        slider.maxValue = 100;
+    }
+
 
 
 

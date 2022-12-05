@@ -16,11 +16,11 @@ public class vampEnemyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (doItOnce == false)
         {
-
+            doItOnce = true;
             StartCoroutine(flyForce());
             
         }
@@ -49,16 +49,13 @@ public class vampEnemyScript : MonoBehaviour
 
     IEnumerator flyForce()
     {
- 
 
-        //rb.velocity = new Vector2(0, -1);
+
+  
+        yield return new WaitForSeconds(0.45f);
         //rb.velocity = new Vector2(0,1);
-        //yield return new WaitForSeconds(2.0f);
-        //rb.velocity = new Vector2(0, -1);
-        yield return new WaitForSeconds(2.0f);
-
-
-        //rb.velocity = new Vector2(0,1);
+        rb.AddForce(Vector2.up * 4, ForceMode2D.Impulse);
+        doItOnce = false;
         //rb.AddForce(transform.up * 20 * Time.deltaTime);
     }
 }

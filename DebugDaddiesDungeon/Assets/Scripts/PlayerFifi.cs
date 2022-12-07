@@ -34,6 +34,8 @@ public class PlayerFifi : MonoBehaviour
     public Animator animator;
     public bool resetJump = false;
 
+    public bool torchInHand = true;
+
     [SerializeField] private float cooldown = 5;
     private float cooldownTimer = 5;
 
@@ -121,7 +123,6 @@ public class PlayerFifi : MonoBehaviour
         {
             resetJumpingValues();
         }
-
     }
 
     public void TakeDamage(int t_damage)

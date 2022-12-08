@@ -40,14 +40,14 @@ public class PlayerFifi : MonoBehaviour
     public short damage = 10; // Base damage for the player
 
     [Header("XP Related variables")]
-    public int level = 0;
+    public int level = 1;
     public float currentXp;
     public float requiredXp;
-    public TextMeshPro levelText;
+    public Text levelText;
 
     void Start()
     {
-        level = 0;
+        level = 1;
         currentXp = 0;
         xpBarScript.setXP(currentXp);
 
@@ -63,7 +63,7 @@ public class PlayerFifi : MonoBehaviour
         savedlocalScale = transform.localScale;
 
         //levelText = TextMeshPro.FindObjectOfType<TextMeshPro>();
-        levelText.text = "Level: ";
+        levelText.text = "Level: " + level.ToString();
     }
 
     // Update is called once per frame
@@ -163,23 +163,33 @@ public class PlayerFifi : MonoBehaviour
         ////////////////////////////////////////////////////////////////////////////
         ///                     LEVEL UPS
         ////////////////////////////////////////////////////////////////////////////
-        if(level == 1 && currentXp == 100)
+        if(level == 1 && currentXp >= 100)
         {
+            currentXp = 0;
+            xpBarScript.setXP(currentXp);
             xpBarScript.setMaxXP(110);
             level = 2;
+            levelText.text = "Level: " + level.ToString();
         }
-        else if(level == 2 && currentXp == 110)
+        else if(level == 2 && currentXp >= 110)
         {
+            currentXp = 0;
+            xpBarScript.setXP(currentXp);
             xpBarScript.setMaxXP(120);
             level = 3;
+            levelText.text = "Level: " + level.ToString();
         }
-        else if(level == 3 && currentXp == 120)
+        else if(level == 3 && currentXp >= 120)
         {
+            currentXp = 0;
+            xpBarScript.setXP(currentXp);
             xpBarScript.setMaxXP(130);
             level = 4;
+            levelText.text = "Level: " + level.ToString();
         }
 
-        levelText.text = "Level: " + level;
+        levelText.text = "Level: " + level.ToString();
+        Debug.Log(level);
     }
 
     public void TakeDamage(int t_damage)

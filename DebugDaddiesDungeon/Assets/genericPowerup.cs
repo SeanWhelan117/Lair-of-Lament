@@ -26,6 +26,8 @@ public class genericPowerup : MonoBehaviour
         movingUp = false;
         upperLimit = initialPos.y - 0.4f;
         lowerLimit = initialPos.y + 0.4f;
+
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

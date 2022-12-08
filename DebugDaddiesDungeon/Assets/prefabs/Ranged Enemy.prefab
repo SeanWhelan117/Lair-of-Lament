@@ -153,7 +153,6 @@ MonoBehaviour:
   firepoint: {fileID: 8271949978338918290}
   cooldown: 5
   withinRange: 6
-  rotateSpeed: 200
 --- !u!114 &8271949978284689826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 8271949978284689819}
+  XP: {fileID: 1091585846796109839, guid: e5459163df415de478fa80abba4eb869, type: 3}
   health: 0
 --- !u!1 &8271949978338918293
 GameObject:

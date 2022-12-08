@@ -9,9 +9,6 @@ public class XPBarScript : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
-    public int level = 0;
-    public float currentXp;
-    public float requiredXp;
 
     public void setXP(float t_XP)
     {

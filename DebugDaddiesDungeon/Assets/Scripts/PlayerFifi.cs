@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerFifi : MonoBehaviour
 {
     [Header("Health and stamina variables")]
     public int maxHealth = 5;
     public int currentHealth;
-    public float stamina = 0;
+    public float stamina = 100;
     public float maxStamina = 100;
     public float staminaIncrease = 3;
     public float staminaDrain = 3;
 
-    [Header("Healthbar and stamina bar")]
+    [Header("HUD Icon bars")]
     public Healthbar healthbar;
     public StaminaBar staminaBarScript;
     public Slider staminaBar;
+    public XPBarScript xpBarScript;
+    public Slider xpBarSlider;
 
     [Header("Player stuff")]
     public Rigidbody2D rb;
@@ -33,13 +36,23 @@ public class PlayerFifi : MonoBehaviour
     Vector2 savedlocalScale;
     public Animator animator;
     public bool resetJump = false;
-  
     private float cooldownTimer = 5;
-
     public short damage = 10; // Base damage for the player
+
+    [Header("XP Related variables")]
+    public int level = 0;
+    public float currentXp;
+    public float requiredXp;
+    public TextMeshPro levelText;
 
     void Start()
     {
+        level = 0;
+        currentXp = 0;
+        xpBarScript.setXP(currentXp);
+
+        requiredXp = 100;
+
         currentHealth = maxHealth;
         healthbar.setMaxHealth(maxHealth);
 
@@ -48,6 +61,9 @@ public class PlayerFifi : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         savedlocalScale = transform.localScale;
+
+        //levelText = TextMeshPro.FindObjectOfType<TextMeshPro>();
+        levelText.text = "Level: ";
     }
 
     // Update is called once per frame
@@ -120,6 +136,9 @@ public class PlayerFifi : MonoBehaviour
         }
 
         staminaBar.value = stamina;
+        xpBarSlider.value = currentXp;
+        xpBarScript.setXP(currentXp);
+        
 
         if (stamina <= 10.0f)
         {
@@ -141,8 +160,26 @@ public class PlayerFifi : MonoBehaviour
             resetJumpingValues();
         }
 
-       
+        ////////////////////////////////////////////////////////////////////////////
+        ///                     LEVEL UPS
+        ////////////////////////////////////////////////////////////////////////////
+        if(level == 1 && currentXp == 100)
+        {
+            xpBarScript.setMaxXP(110);
+            level = 2;
+        }
+        else if(level == 2 && currentXp == 110)
+        {
+            xpBarScript.setMaxXP(120);
+            level = 3;
+        }
+        else if(level == 3 && currentXp == 120)
+        {
+            xpBarScript.setMaxXP(130);
+            level = 4;
+        }
 
+        levelText.text = "Level: " + level;
     }
 
     public void TakeDamage(int t_damage)
@@ -212,6 +249,20 @@ public class PlayerFifi : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))
         {
             TakeDamage(1);
+        }
+
+        if(collision.gameObject.CompareTag("NPC"))
+        {
+            TakeDamage(1);
+        }
+
+        if(collision.gameObject.CompareTag("XP"))
+        {
+            Debug.Log("Collided with the xp drop");
+            Destroy(collision.gameObject);
+            currentXp += 25;//Random.Range(5, 10);
+            xpBarScript.setXP(currentXp);
+
         }
 
     }

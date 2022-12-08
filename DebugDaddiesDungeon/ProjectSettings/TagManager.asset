@@ -11,6 +11,9 @@ TagManager:
   - Wall
   - NPC
   - door1
+  - Projectile
+  - XP
+  - levelText
   layers:
   - Default
   - TransparentFX

@@ -14,22 +14,16 @@ using UnityEngine.UI;
 public class NPCHealth : MonoBehaviour
 {
     [Header("Objects and Scripts")]
-    public XPBarScript xpBar;
-    public Slider xpBarSlider;
     public GameObject npc;
+    public GameObject XP;
 
     [Header("Variables")]
     public short health;
+  
 
     private void Start()
     {
         assignHealthToNPC(); // This will assign health to the NPC, depending on the type of enemy!
-
-        //Checking what level we are and assigning a level cap
-        if(xpBar.level == 1)
-        {
-            xpBar.setMaxXP(100);
-        }
     }
 
     public void assignHealthToNPC() // DO NOT EDIT LAYERS
@@ -58,38 +52,13 @@ public class NPCHealth : MonoBehaviour
     private void Update()
     {
 
-        xpBarSlider.value = xpBar.currentXp;
+        
     }
-
-    public void setXpToNPC()
+    
+    private void spawnXP()
     {
-        if (npc.layer == 10) // 10th layer is GRUNT !!!!DO NOT EDIT!!!!
-        {
-            xpBar.currentXp += 5;
-            xpBar.setXP(xpBar.currentXp);
-            Debug.Log("Giving XP");
-        }
+        Instantiate(XP, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
-        if (npc.layer == 11) // 11th layer is RANGED !!!!DO NOT EDIT!!!!
-        {
-            xpBar.currentXp += 10;
-            xpBar.setXP(xpBar.currentXp);
-            Debug.Log("Giving XP Ranged ");
-        }
-
-        if (npc.layer == 12) // 12th layer is BRUTE !!!!DO NOT EDIT!!!!
-        {
-            xpBar.currentXp += 15;
-            xpBar.setXP(xpBar.currentXp);
-            Debug.Log("Giving XP");
-        }
-
-        if (npc.layer == 13) // 13th layer is BOSS !!!!DO NOT EDIT!!!!
-        {
-            xpBar.currentXp += 20;
-            xpBar.setXP(xpBar.currentXp);
-            Debug.Log("Giving XP");
-        }
     }
 
     public void NPCTakesDamage(short t_health, short t_damage) // takes in the damage done by the player and the NPCs health
@@ -97,8 +66,8 @@ public class NPCHealth : MonoBehaviour
         t_health -= t_damage;
         if (isNPCDead())
         {
-            setXpToNPC();
             Destroy(npc);
+            spawnXP();
         }
     
 

@@ -33,7 +33,11 @@ public class PlayerFifi : MonoBehaviour
     Vector2 savedlocalScale;
     public Animator animator;
     public bool resetJump = false;
-  
+
+    public bool torchInHand = true;
+
+    [SerializeField] private float cooldown = 5;
+
     private float cooldownTimer = 5;
 
     public short damage = 10; // Base damage for the player

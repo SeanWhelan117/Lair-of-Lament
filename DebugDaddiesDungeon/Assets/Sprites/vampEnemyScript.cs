@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class vampEnemyScript : MonoBehaviour
 {
-    bool doItOnce = false;
-    bool gravity = false;
-    bool afterTransform = false;
+    public bool doItOnce = false;
+    public bool gravity = false;
+    public bool afterTransform = false;
     public Rigidbody2D rb;
     public BoxCollider2D box;
     public Animator sprite;
     public int randomDmg;
+    public float speed = 0.06f;
+
 
     public PlayerFifi player;
-    private bool move = false;
+    public bool move = false;
+
+
+    public GameObject particle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,7 @@ public class vampEnemyScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         randomDmg = Random.Range(1, 4);
         if (afterTransform == false)
         {
@@ -31,29 +38,10 @@ public class vampEnemyScript : MonoBehaviour
                 gravity = true;
                 StartCoroutine(flyForce());
             }
-          
-            //if (rb.transform.position.x - player.transform.position.x < 2.0f)
-            //{
-            //    sprite.SetBool("atc", false);
-            //    Debug.Log("att no");
-            //    box.size = new Vector2(0.8f, 0.9f);
-            //}
         }
-        if (rb.transform.position.x - player.transform.position.x > 0.95f)
-        {
-            sprite.SetBool("atc", true);
-            box.size = new Vector2(0.7f, 1.5f);
-            //player.TakeDamage(randomDmg);
-            Debug.Log("att");
 
-        }
-        if (rb.transform.position.x - player.transform.position.x > 1.05f)
-        {
-            sprite.SetBool("atc", false);
-            box.size = new Vector2(0.7f, 0.9f);
-            Debug.Log("att no");
-
-        }
+    
+        
         if (move == true)
         {
             moveTowardPlayer();
@@ -71,13 +59,6 @@ public class vampEnemyScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (doItOnce == false && rb.transform.position.x - player.transform.position.x < 5.0f)
-            {
-                transformToVamp();
-                doItOnce = true;
-                sprite.SetBool("transform", true);
-                afterTransform = true;
-            }
             move = true;
         }
 
@@ -88,7 +69,8 @@ public class vampEnemyScript : MonoBehaviour
     public void transformToVamp()
     {
       box.size = new Vector2(0.7f, 0.9f);
-        
+      Instantiate(particle, transform.position, transform.rotation);
+      Destroy(particle, 3.0f);
     }
 
     IEnumerator flyForce()
@@ -110,12 +92,12 @@ public class vampEnemyScript : MonoBehaviour
         {
             if (rb.transform.position.x > player.transform.position.x)
             {
-                rb.transform.position -= new Vector3(0.06f, 0.0f);
+                rb.transform.position -= new Vector3(speed, 0.0f);
                 rb.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
             if (rb.transform.position.x < player.transform.position.x)
             {
-                rb.transform.position += new Vector3(0.06f, 0.0f);
+                rb.transform.position += new Vector3(speed, 0.0f);
                 rb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
         }

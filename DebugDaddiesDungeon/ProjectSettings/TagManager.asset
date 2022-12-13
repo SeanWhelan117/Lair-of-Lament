@@ -13,6 +13,8 @@ TagManager:
   - door1
   - Projectile
   - Portal
+  - XP
+  - Spikes
   layers:
   - Default
   - TransparentFX

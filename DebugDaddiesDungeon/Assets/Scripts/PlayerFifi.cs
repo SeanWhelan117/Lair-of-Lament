@@ -67,8 +67,9 @@ public class PlayerFifi : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         savedlocalScale = transform.localScale;
 
-        //levelText = TextMeshPro.FindObjectOfType<TextMeshPro>();
         levelText.text = "Level: " + level.ToString();
+
+        
     }
 
     // Update is called once per frame
@@ -156,8 +157,7 @@ public class PlayerFifi : MonoBehaviour
         //currently reloading the main game scene again we can change this to do anything we need it to - Adam
         if (isPlayerDead() == true)
         {
-            SceneManager.LoadScene("Level"); 
-            Debug.Log("The Player Died - Do our restart scene ");
+            StartCoroutine(Killcam());
         }
 
         if (resetJump == true)
@@ -165,10 +165,18 @@ public class PlayerFifi : MonoBehaviour
             resetJumpingValues();
         }
 
+        IEnumerator Killcam()
+        {
+
+            yield return new WaitForSeconds(6.0f);
+            Debug.Log("The Player Died - Do our restart scene ");
+            SceneManager.LoadScene("Level");
+        }
+
         ////////////////////////////////////////////////////////////////////////////
         ///                     LEVEL UPS
         ////////////////////////////////////////////////////////////////////////////
-        if(level == 1 && currentXp >= 100)
+        if (level == 1 && currentXp >= 100)
         {
             currentXp = 0;
             xpBarScript.setXP(currentXp);
@@ -204,7 +212,8 @@ public class PlayerFifi : MonoBehaviour
 
         if (isPlayerDead())
         {
-            Destroy(this.gameObject);
+            gameObject.transform.position = new Vector2(74, 60);
+            
         }
     }
 
@@ -278,6 +287,11 @@ public class PlayerFifi : MonoBehaviour
             currentXp += 25;//Random.Range(5, 10);
             xpBarScript.setXP(currentXp);
 
+        }
+
+        if (collision.gameObject.tag == "Spikes")
+        {
+            TakeDamage(1);
         }
 
     }

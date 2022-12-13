@@ -25,16 +25,24 @@ public class ghostSense : MonoBehaviour
 
     public void moveTowardPlayer()
     {
-            if (rb.transform.position.x > player.transform.position.x)
-            {
-                rb.transform.position -= new Vector3(speed, 0.0f);
-                rb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            }
-            if (rb.transform.position.x < player.transform.position.x)
-            {
-                rb.transform.position += new Vector3(speed, 0.0f);
-                rb.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            }
+        if (rb.transform.position.x > player.transform.position.x)
+        {
+            rb.transform.position -= new Vector3(speed, 0.0f);
+            rb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+        if (rb.transform.position.x < player.transform.position.x)
+        {
+            rb.transform.position += new Vector3(speed, 0.0f);
+            rb.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+        }
+        if (rb.transform.position.y > player.transform.position.y)
+        {
+            rb.transform.position -= new Vector3(0.0f, 0.04f);
+        }
+        if (rb.transform.position.y < player.transform.position.y)
+        {
+            rb.transform.position += new Vector3(0.0f, 0.04f);
+        }
     }
 
     public void jumpScare()

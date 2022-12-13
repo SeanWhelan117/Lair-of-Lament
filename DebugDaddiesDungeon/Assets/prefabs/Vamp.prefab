@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7884753260203263670}
   - component: {fileID: 4645732907067928729}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,9 +125,10 @@ GameObject:
   - component: {fileID: 7962814707442037804}
   - component: {fileID: 7962814707442037805}
   - component: {fileID: 7962814707442037800}
-  m_Layer: 15
+  - component: {fileID: 2108532203}
+  m_Layer: 12
   m_Name: Vamp
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,6 +294,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2108532203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962814707442037806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacd0f4dc777e0049b489704c5551747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 7962814707442037806}
+  XP: {fileID: 1091585846796109839, guid: e5459163df415de478fa80abba4eb869, type: 3}
+  health: 0
 --- !u!1 &7962814707719899677
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +320,7 @@ GameObject:
   - component: {fileID: 7962814707719899676}
   - component: {fileID: 7962814707719899674}
   - component: {fileID: 7962814707719899673}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: VampMorphRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7962814707843445404}
   - component: {fileID: 7962814707843445402}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: VampSense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +450,7 @@ GameObject:
   - component: {fileID: 7962814708562931051}
   - component: {fileID: 7962814708562931049}
   - component: {fileID: 7962814708562931050}
-  m_Layer: 15
+  m_Layer: 12
   m_Name: attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

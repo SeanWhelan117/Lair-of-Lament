@@ -12,8 +12,7 @@ TagManager:
   - NPC
   - door1
   - Projectile
-  - XP
-  - levelText
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -30,7 +29,7 @@ TagManager:
   - Brute
   - Boss
   - door
-  - 
+  - vamp
   - 
   - 
   - 

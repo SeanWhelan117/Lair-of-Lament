@@ -13,7 +13,7 @@ public class DoorTeleport : MonoBehaviour
     {
         if (allowTeleport == true)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 player.rb.transform.position = Target.position;
             }

@@ -8,7 +8,7 @@ public class RangedEnemyAttack : MonoBehaviour
     public GameObject Player;
     public GameObject Projectile;
     public Transform firepoint;
- 
+    public Animator anim;
     [SerializeField] private float cooldown = 3;
     private float cooldownTimer;
     int bulletSpeed = 6;
@@ -24,11 +24,11 @@ public class RangedEnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(gameObject.transform.position, Player.gameObject.transform.position) < withinRange)
+        if(Vector3.Distance(gameObject.transform.position, PlayerFifi.instance.gameObject.transform.position) < withinRange)
         {
             Debug.Log("Player is within the distance bloody");
             ShootAtPlayer();
-    
+            anim.SetBool("attack", true);
         }
 
     }
@@ -43,7 +43,7 @@ public class RangedEnemyAttack : MonoBehaviour
 
         GameObject ProjectClone = Instantiate(Projectile, firepoint.position, firepoint.rotation);
         Rigidbody2D rbProjectile = ProjectClone.GetComponent<Rigidbody2D>();
-        rbProjectile.velocity = (Player.transform.position - firepoint.position).normalized * bulletSpeed;
+        rbProjectile.velocity = (PlayerFifi.instance.transform.position - firepoint.position).normalized * bulletSpeed;
     }
 
     //Debugging 

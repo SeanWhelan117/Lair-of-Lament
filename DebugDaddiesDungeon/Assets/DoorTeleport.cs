@@ -15,7 +15,7 @@ public class DoorTeleport : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                player.rb.transform.position = Target.position;
+                PlayerFifi.instance.rb.transform.position = Target.position;
             }
         }
     }

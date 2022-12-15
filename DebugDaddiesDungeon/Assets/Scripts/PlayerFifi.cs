@@ -30,6 +30,7 @@ public class PlayerFifi : MonoBehaviour
     public float gravityScale = 0;
     public float fallingGravityScale = 0;
     public bool isGrounded = false;
+    public float PLAYER_SPEED_DEFAULT = 5.0f;
     public float playerSpeed = 5.0f;
     public bool m_FacingRight = true;
     public bool m_FacingLeft = false;
@@ -46,6 +47,7 @@ public class PlayerFifi : MonoBehaviour
 
     [Header("XP Related variables")]
     public int level = 1;
+    public short levelPoints = 0;
     public float currentXp;
     public float requiredXp;
     public Text levelText;
@@ -110,7 +112,7 @@ public class PlayerFifi : MonoBehaviour
 
        if(stamina >= 10)
         {
-            playerSpeed = 5.0f;
+            playerSpeed = PLAYER_SPEED_DEFAULT;
         }
 
 
@@ -148,7 +150,7 @@ public class PlayerFifi : MonoBehaviour
 
         if (stamina <= 10.0f)
         {
-            playerSpeed = 2.0f;
+            playerSpeed = PLAYER_SPEED_DEFAULT / 2;
             IncreaseEnergy();
         }
         ////////////////////////////////////////////////////////////////////////////
@@ -178,6 +180,7 @@ public class PlayerFifi : MonoBehaviour
         ////////////////////////////////////////////////////////////////////////////
         if (level == 1 && currentXp >= 100)
         {
+            levelPoints += 1;
             currentXp = 0;
             xpBarScript.setXP(currentXp);
             xpBarScript.setMaxXP(110);
@@ -186,6 +189,7 @@ public class PlayerFifi : MonoBehaviour
         }
         else if(level == 2 && currentXp >= 110)
         {
+            levelPoints += 1;
             currentXp = 0;
             xpBarScript.setXP(currentXp);
             xpBarScript.setMaxXP(120);
@@ -194,6 +198,7 @@ public class PlayerFifi : MonoBehaviour
         }
         else if(level == 3 && currentXp >= 120)
         {
+            levelPoints += 1;
             currentXp = 0;
             xpBarScript.setXP(currentXp);
             xpBarScript.setMaxXP(130);
@@ -202,7 +207,7 @@ public class PlayerFifi : MonoBehaviour
         }
 
         levelText.text = "Level: " + level.ToString();
-        Debug.Log(level);
+        //Debug.Log(level);
     }
 
     public void TakeDamage(int t_damage)
@@ -223,6 +228,12 @@ public class PlayerFifi : MonoBehaviour
             return true;
         else
             return false;
+    }
+    public void increasePlayerMaxHealth()
+    {      
+        maxHealth += 1;
+        currentHealth = maxHealth;
+        healthbar.setMaxHealth(maxHealth);
     }
 
     private void DecreaseEnergy()

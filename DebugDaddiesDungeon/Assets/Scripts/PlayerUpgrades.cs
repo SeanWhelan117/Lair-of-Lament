@@ -7,10 +7,6 @@ using UnityEngine.UI;
 /// It will trigger the buttons to true when the level up happens, and it will add listeners to each button
 /// each button keeps track of how many times it has been leveled up
 /// 
-/// TODO: 1. Save this information into a file when the player wants to continue the game
-///       2. Call the actual function that will increase the selected levelup
-///       3. Add a limit for a specific level up
-///       4. Check for these limits with an if statement inside the functions for incrementing the level of upgrade.
 ///
 /// </summary>
 public class PlayerUpgrades : MonoBehaviour
@@ -25,42 +21,82 @@ public class PlayerUpgrades : MonoBehaviour
     short speed = 0;
     short health = 0;
 
+    bool triggered = false;
+
     // Need to add more upgrades
 
-    void TriggerUpgrade()
+    void FixedUpdate()
     {
-        strengthButton.gameObject.SetActive(true);
-        speedButton.gameObject.SetActive(true);
-        healthButton.gameObject.SetActive(true);
+        if (player.gameObject.GetComponent<PlayerFifi>().levelPoints >= 1)
+        {
+            triggered = true;
+            TriggerUpgrades();
+        }
+    }
 
-        strengthButton.onClick.AddListener(addStrengthToPlayer);
-        speedButton.onClick.AddListener(addMaxSpeedToPlayer);
-        healthButton.onClick.AddListener(addMaxHealthToPlayer);
+    void TriggerUpgrades()
+    {
+        if (triggered)
+        {
+            strengthButton.gameObject.SetActive(true);
+            speedButton.gameObject.SetActive(true);
+            healthButton.gameObject.SetActive(true);
+
+            strengthButton.onClick.AddListener(addStrengthToPlayer);
+            speedButton.onClick.AddListener(addMaxSpeedToPlayer);
+            healthButton.onClick.AddListener(addMaxHealthToPlayer);
+        }
     }
 
     void addStrengthToPlayer()
     {
-        strength++;
-        // Call something to make give the player increased strength
-        removeButtons();
+        if (triggered)
+        {
+            triggered = false;
+            Debug.Log("STRONK");
+            strength++;
+            player.gameObject.GetComponent<PlayerFifi>().levelPoints -= 1;
+            player.gameObject.GetComponent<PlayerFifi>().damage += 2;
+            // Call something to make give the player increased strength
+            Debug.Log(player.gameObject.GetComponent<PlayerFifi>().damage);
+            removeButtons();
+        }
+        
     }
 
     void addMaxHealthToPlayer()
     {
-        health++;
-        // Call something to make give the player increased health
-        removeButtons();
+        if (triggered)
+        {
+            triggered = false;
+            Debug.Log("FATBOI");
+            health++;
+            player.gameObject.GetComponent<PlayerFifi>().levelPoints -= 1;
+            player.gameObject.GetComponent<PlayerFifi>().increasePlayerMaxHealth();
+            // Call something to make give the player increased health
+            Debug.Log(player.gameObject.GetComponent<PlayerFifi>().maxHealth);
+            removeButtons();
+        }
     }
 
     void addMaxSpeedToPlayer()
     {
-        speed++;
-        // Call something to make give the player increased speed
-        removeButtons();
+        if (triggered)
+        {
+            triggered = false;
+            Debug.Log("SHPEEED");
+            speed++;
+            player.gameObject.GetComponent<PlayerFifi>().levelPoints -= 1;
+            player.gameObject.GetComponent<PlayerFifi>().PLAYER_SPEED_DEFAULT += 1.0f;
+            // Call something to make give the player increased speed
+            Debug.Log(player.gameObject.GetComponent<PlayerFifi>().PLAYER_SPEED_DEFAULT);
+            removeButtons();
+        }
     }
 
     public void removeButtons()
     {
+        triggered = false;
         strengthButton.gameObject.SetActive(false);
         speedButton.gameObject.SetActive(false);
         healthButton.gameObject.SetActive(false);

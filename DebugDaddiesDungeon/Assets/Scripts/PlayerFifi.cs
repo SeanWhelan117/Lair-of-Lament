@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 
 public class PlayerFifi : MonoBehaviour
 {
@@ -50,8 +52,23 @@ public class PlayerFifi : MonoBehaviour
     public float requiredXp;
     public Text levelText;
 
+    public static PlayerFifi instance = null;
+
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
+        
         level = 1;
         currentXp = 0;
         xpBarScript.setXP(currentXp);

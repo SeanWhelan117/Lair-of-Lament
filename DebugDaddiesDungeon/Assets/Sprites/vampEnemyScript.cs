@@ -90,12 +90,12 @@ public class vampEnemyScript : MonoBehaviour
 
         if (afterTransform == true)
         {
-            if (rb.transform.position.x > player.transform.position.x)
+            if (rb.transform.position.x > PlayerFifi.instance.transform.position.x)
             {
                 rb.transform.position -= new Vector3(speed, 0.0f);
                 rb.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
-            if (rb.transform.position.x < player.transform.position.x)
+            if (rb.transform.position.x < PlayerFifi.instance.transform.position.x)
             {
                 rb.transform.position += new Vector3(speed, 0.0f);
                 rb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
@@ -103,21 +103,21 @@ public class vampEnemyScript : MonoBehaviour
         }
         if (afterTransform == false)
         {
-            if (rb.transform.position.x > player.transform.position.x)
+            if (rb.transform.position.x > PlayerFifi.instance.transform.position.x)
             {
                 rb.transform.position -= new Vector3(0.04f, 0.0f);
                 rb.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             }
-            if (rb.transform.position.x < player.transform.position.x)
+            if (rb.transform.position.x < PlayerFifi.instance.transform.position.x)
             {
                 rb.transform.position += new Vector3(0.04f, 0.0f);
                 rb.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             }
-            if (rb.transform.position.y > player.transform.position.y)
+            if (rb.transform.position.y > PlayerFifi.instance.transform.position.y)
             {
                 rb.transform.position -= new Vector3(0.0f, 0.04f);
             }
-            if (rb.transform.position.y < player.transform.position.y)
+            if (rb.transform.position.y < PlayerFifi.instance.transform.position.y)
             {
                 rb.transform.position += new Vector3(0.0f, 0.04f);
             }

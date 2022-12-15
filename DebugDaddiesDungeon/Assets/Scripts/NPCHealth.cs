@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 ///  Used for all NPCs, Example of Factory for handling all hp for enemies
@@ -12,9 +13,13 @@ using UnityEngine;
 
 public class NPCHealth : MonoBehaviour
 {
+    [Header("Objects and Scripts")]
     public GameObject npc;
+    public GameObject XP;
 
+    [Header("Variables")]
     public short health;
+  
 
     public short damage;
 
@@ -50,13 +55,27 @@ public class NPCHealth : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+        
+    }
+    
+    private void spawnXP()
+    {
+        Instantiate(XP, this.gameObject.transform.position, this.gameObject.transform.rotation);
+
+    }
+
     public void NPCTakesDamage(short t_health, short t_damage) // takes in the damage done by the player and the NPCs health
     {
         t_health -= t_damage;
         if (isNPCDead())
         {
             Destroy(npc);
+            spawnXP();
         }
+    
 
         //npc.health = t_health;  Placeholder for getting npcs health set after taking damage
         health = t_health;

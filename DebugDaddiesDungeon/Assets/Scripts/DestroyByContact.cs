@@ -11,6 +11,11 @@ public class DestroyByContact : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
+
 
     }
 

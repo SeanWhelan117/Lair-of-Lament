@@ -23,6 +23,4 @@ public class StaminaBar : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
     }
     
-
-    
 }

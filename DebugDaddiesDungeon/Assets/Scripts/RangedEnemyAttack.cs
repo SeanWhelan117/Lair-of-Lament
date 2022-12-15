@@ -8,7 +8,7 @@ public class RangedEnemyAttack : MonoBehaviour
     public GameObject Player;
     public GameObject Projectile;
     public Transform firepoint;
- 
+    public Animator anim;
     [SerializeField] private float cooldown = 3;
     private float cooldownTimer;
     int bulletSpeed = 6;
@@ -28,7 +28,7 @@ public class RangedEnemyAttack : MonoBehaviour
         {
             Debug.Log("Player is within the distance bloody");
             ShootAtPlayer();
-    
+            anim.SetBool("attack", true);
         }
 
     }

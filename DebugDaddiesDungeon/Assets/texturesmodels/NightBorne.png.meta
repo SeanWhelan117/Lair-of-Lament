@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -93,6 +93,18 @@ TextureImporter:
     buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -1362,9 +1374,9 @@ TextureImporter:
       NightBorne_44: -509510317
       NightBorne_1: -1315874301
       NightBorne_8: 925053591
-      NightBorne_54: 1791148146
-      NightBorne_20: 355922682
       NightBorne_46: -1238482304
+      NightBorne_20: 355922682
+      NightBorne_54: 1791148146
       NightBorne_19: -1123504235
       NightBorne_21: 1523445695
       NightBorne_43: 1818854270

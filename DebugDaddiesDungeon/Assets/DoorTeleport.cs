@@ -8,7 +8,9 @@ public class DoorTeleport : MonoBehaviour
     public PlayerFifi player;
     public bool allowTeleport;
 
-
+    /// <summary>
+    /// If allowed to teleport and the E key is pressed transport the player to the other door location
+    /// </summary>
     private void Update()
     {
         if (allowTeleport == true)
@@ -19,7 +21,10 @@ public class DoorTeleport : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Checking for collsions if they are on the door currently
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -28,7 +33,10 @@ public class DoorTeleport : MonoBehaviour
             Debug.Log("enter door");
         }
     }
-
+    /// <summary>
+    /// Check if the player is no longer colliding with the door
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

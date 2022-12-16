@@ -20,7 +20,15 @@ public class CameraScript : MonoBehaviour
 	public float shakeMultiplier;
 	public float shakeExtendor;
 	// Use this for initialization
+	/// <summary>
+	/// Initialises the camera to the targetPos(the player)
+	/// </summary>
 	void Start(){cam = GetComponent<Camera>();targetPos = transform.position;}
+	
+	/// <summary>
+	/// Adds lerp to the targetPos
+	/// Starts coRountines for Zoomin, Zoomout and shake the camera
+	/// </summary>
 	void Update()
 	{ 
 		if (target)
@@ -35,6 +43,14 @@ public class CameraScript : MonoBehaviour
 		if (zoomOut == true && zoom == false){StartCoroutine(cameraZoomOut(camSize, camSizeOut, 0.5f));}
 		if (shake == true){StartCoroutine(shakeCam(shakeMultiplier));}
 	}
+
+	/// <summary>
+	/// Zooming the camera, fairly self explanatory
+	/// </summary>
+	/// <param name="oldSize"></param>
+	/// <param name="newSize"></param>
+	/// <param name="time"></param>
+	/// <returns></returns>
 	IEnumerator cameraZoom(float oldSize, float newSize, float time)
 	{
 	
@@ -54,6 +70,13 @@ public class CameraScript : MonoBehaviour
 			yield return null;
 		} zoom = false;
 	}
+	/// <summary>
+	/// Zooming out the camera, also fairly self explanatory
+	/// </summary>
+	/// <param name="oldSize"></param>
+	/// <param name="newSize"></param>
+	/// <param name="time"></param>
+	/// <returns></returns>
 	IEnumerator cameraZoomOut(float oldSize, float newSize, float time)
 	{
 		float elapsed = 0;
@@ -66,6 +89,11 @@ public class CameraScript : MonoBehaviour
 			yield return null;
 		} zoomOut = false;
 	}
+	/// <summary>
+	/// Shakes the camera by adding small amount or random change * the shake multiplier a few times
+	/// </summary>
+	/// <param name="shakeMultiplier"></param>
+	/// <returns></returns>
 	IEnumerator shakeCam(float shakeMultiplier)
 	{
 		transform.localPosition = cam.transform.position + Random.insideUnitSphere * shakeMultiplier;

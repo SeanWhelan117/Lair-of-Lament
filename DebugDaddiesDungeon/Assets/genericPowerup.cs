@@ -18,6 +18,10 @@ public class genericPowerup : MonoBehaviour
     private float cooldownTimer;
 
     // Start is called before the first frame update
+    /// <summary>
+    /// Set the initial powerup to moving down and its initial pos and new pos are set
+    /// Also gets reference to the player
+    /// </summary>
     void Start()
     {
         initialPos = powerUp.transform.position;
@@ -31,6 +35,10 @@ public class genericPowerup : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Checks if the powerup is outside the upper/ lower limit bounds 
+    /// If this is the case then reverse the direction from travelling up to travelling down and vice versa
+    /// </summary>
     void Update()
     {
         if (movingDown == true && newPos.y < upperLimit)
@@ -46,6 +54,9 @@ public class genericPowerup : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Move the powerup up and down and rotate it so that it looks mystical and less static
+    /// </summary>
     private void FixedUpdate()
     {
         if(movingDown)
@@ -61,7 +72,11 @@ public class genericPowerup : MonoBehaviour
         powerUp.transform.Rotate(0.0f, 0.0f, 1.0f, Space.Self);
     }
 
-
+    /// <summary>
+    /// Check for the collision witht he player.
+    /// If true then the players stats will change based on the powerup gotten
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))

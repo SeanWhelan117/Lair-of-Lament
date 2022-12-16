@@ -13,6 +13,9 @@ public class ghostSense : MonoBehaviour
     public AudioSource sound;
 
     // Update is called once per frame
+    /// <summary>
+    /// Move towards player if move is true
+    /// </summary>
     void FixedUpdate()
     {
 
@@ -22,7 +25,9 @@ public class ghostSense : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Find the vector between player and the enemy, move along that vector
+    /// </summary>
     public void moveTowardPlayer()
     {
         if (rb.transform.position.x > PlayerFifi.instance.transform.position.x)
@@ -44,7 +49,9 @@ public class ghostSense : MonoBehaviour
             rb.transform.position += new Vector3(0.0f, 0.04f);
         }
     }
-
+    /// <summary>
+    /// if jumpScare is called, start coroutine called boo
+    /// </summary>
     public void jumpScare()
     {
 
@@ -52,6 +59,10 @@ public class ghostSense : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Boo jumpscares the player
+    /// </summary>
+    /// <returns></returns>
     IEnumerator boo()
     {
         jumpScareObject.SetActive(true);

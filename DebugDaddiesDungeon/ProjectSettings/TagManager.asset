@@ -16,6 +16,7 @@ TagManager:
   - XP
   - Spikes
   - PatrolSpots
+  - Health
   layers:
   - Default
   - TransparentFX

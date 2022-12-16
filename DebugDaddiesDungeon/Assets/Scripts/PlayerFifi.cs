@@ -356,6 +356,7 @@ public class PlayerFifi : MonoBehaviour
     /// Checks collision with the projectile / NPC / XP / Spikes for the player and does accordingly
     /// For the NPC / Projectile / Spikes  the player calls the take damage function and passes an amount of damage
     /// For the XP the players current XP increases and the function for setting the XPbar to reflect this is called
+    /// Once the player collides with the 'Health' pickup, health will be added and then the healthbar will be updated
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
@@ -382,6 +383,13 @@ public class PlayerFifi : MonoBehaviour
         if (collision.gameObject.tag == "Spikes")
         {
             TakeDamage(1);
+        }
+
+        if(collision.gameObject.CompareTag("Health"))
+        {
+            Destroy(collision.gameObject);
+            currentHealth += 1;
+            healthbar.setHealth(currentHealth);
         }
 
     }

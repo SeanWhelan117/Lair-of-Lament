@@ -1300,10 +1300,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged Enemy with patrolling
       objectReference: {fileID: 0}
-    - target: {fileID: 4037529420664276540, guid: 58fb0c8facbcb0c45b306ae4186776bd, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 7459479564717640749}
     - target: {fileID: 4037529420664276542, guid: 58fb0c8facbcb0c45b306ae4186776bd, type: 3}
       propertyPath: m_RootOrder
       value: 6

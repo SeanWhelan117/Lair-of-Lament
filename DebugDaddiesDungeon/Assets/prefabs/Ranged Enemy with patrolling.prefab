@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 4037529420664276543}
   - component: {fileID: 4037529420664276480}
   - component: {fileID: 4037529420664276481}
-  - component: {fileID: 4037529420664276540}
   - component: {fileID: 4037529420664276539}
   - component: {fileID: 5387414768180799787}
   m_Layer: 11
@@ -168,24 +167,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 1
---- !u!114 &4037529420664276540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4037529420664276482}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f378514e2c23e4cbd8b39f300f6705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Projectile: {fileID: 3647504365068609122, guid: 2338a68fa1304784191201656702be25, type: 3}
-  firepoint: {fileID: 4037529420601716747}
-  anim: {fileID: 5387414768180799787}
-  cooldown: 1
-  withinRange: 6
 --- !u!114 &4037529420664276539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 4037529420664276482}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 735a3c7c3f8a17c4286f72c181db31a1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4c3a820bc38f82744aa374d011fea938, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

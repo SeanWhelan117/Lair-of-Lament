@@ -17,6 +17,11 @@ public class portalScript : MonoBehaviour
     public PlayerFifi player;
     public bool allowTeleport;
     // Start is called before the first frame update
+    /// <summary>
+    /// initialise a upper and lower limit to the scale of the portal
+    /// Set adding scale to true
+    /// Add in an initial scale and a new scale
+    /// </summary>
     void Start()
     {
         initialScale = Portal.transform.localScale;
@@ -28,6 +33,11 @@ public class portalScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Check if the newScale is outside the bounds of the upper/ lower limit
+    /// If this is the case then turnt the scale around.
+    /// adding to scale instead of lowering and vice versa
+    /// </summary>
     void Update()
     {
         if(newScale.x > upperLimit)
@@ -50,6 +60,10 @@ public class portalScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add to and lower scale
+    /// Set the portals scale to said scale
+    /// </summary>
     private void FixedUpdate()
     {
         if (loweringScale)
@@ -67,7 +81,10 @@ public class portalScript : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Check for collision with player, if this is true allow teleportation becomes true
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

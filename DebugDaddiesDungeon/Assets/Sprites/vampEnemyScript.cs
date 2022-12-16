@@ -21,12 +21,21 @@ public class vampEnemyScript : MonoBehaviour
     public GameObject particle;
 
     // Start is called before the first frame update
+    /// <summary>
+    /// get rigidBody
+    /// </summary>
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// get a random amount of damage between 1 and 4
+    /// start the coroutine flyForce if it hasnt tranformed
+    /// if gravity is false then set it to true
+    /// Move towards the player 
+    /// </summary>
     void FixedUpdate()
     {
 
@@ -54,7 +63,10 @@ public class vampEnemyScript : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// if the vamp collides with the player. Move= true
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -65,7 +77,11 @@ public class vampEnemyScript : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Transforms the bat into the vampire
+    /// Instantiate the particle of magic smoke to hide this change
+    /// Then destroy said particles to reveal the transformation
+    /// </summary>
     public void transformToVamp()
     {
       box.size = new Vector2(0.7f, 0.9f);
@@ -73,6 +89,10 @@ public class vampEnemyScript : MonoBehaviour
       Destroy(particle, 3.0f);
     }
 
+    /// <summary>
+    /// Add force when flying using a coroutine
+    /// </summary>
+    /// <returns></returns>
     IEnumerator flyForce()
     {
         yield return new WaitForSeconds(0.45f);
@@ -84,7 +104,10 @@ public class vampEnemyScript : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Gets a vector between the vampire and the player.
+    /// Use this vector to move towards the player
+    /// </summary>
     public void moveTowardPlayer()
     {
 

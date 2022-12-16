@@ -6,7 +6,7 @@ public class ghostSenseTrigger : MonoBehaviour
 {
     public ghostSense ghost;
     /// <summary>
-    /// if the ghost is colliding with the player, ghost. move is true
+    /// if the ghostSense is colliding with the player, ghost. move is true
     /// </summary>
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)

@@ -7,6 +7,9 @@ public class HelpScreenScript : MonoBehaviour
     public GameObject AKey;
     public GameObject DKey;
     public GameObject SpaceKey;
+    public GameObject Ekey;
+    public GameObject FKey;
+    public GameObject MouseLeft;
 
     private Vector3 scaleFactor;
     private Vector3 scaleFactor2;
@@ -48,6 +51,34 @@ public class HelpScreenScript : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             SpaceKey.transform.localScale = scaleFactor;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ekey.transform.localScale += scaleFactor2;
+        }
+        else if (Input.GetKeyUp(KeyCode.E))
+        {
+            Ekey.transform.localScale = scaleFactor;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            FKey.transform.localScale += scaleFactor2;
+        }
+        else if (Input.GetKeyUp(KeyCode.F))
+        {
+            FKey.transform.localScale = scaleFactor;
+        }
+
+        if (Input.GetMouseButtonDown(0) == true)
+        {
+            Debug.Log("cLICK");
+            MouseLeft.transform.localScale += scaleFactor2;
+        }
+       else if (Input.GetMouseButtonUp(0) == true)
+        {
+            MouseLeft.transform.localScale = scaleFactor;
         }
     }
 }

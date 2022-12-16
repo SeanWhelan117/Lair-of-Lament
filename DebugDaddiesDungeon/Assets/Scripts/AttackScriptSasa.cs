@@ -15,6 +15,11 @@ public class AttackScriptSasa : MonoBehaviour
     public bool NPCinRange = false;
 
     // Update is called once per frame
+    /// <summary>
+    /// Update function used for players attack
+    /// Checks for Keycodes for the mouse.
+    /// Also checks if the NPC is in range so that it can take damage
+    /// </summary>
     void Update()
     {
 
@@ -49,6 +54,10 @@ public class AttackScriptSasa : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks for entrance to collision with the NPC game object via tags
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
@@ -60,6 +69,10 @@ public class AttackScriptSasa : MonoBehaviour
             NPCinRange = false;
     }
 
+    /// <summary>
+    /// Checks for exit to collision with the NPC game object via tags
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
@@ -68,6 +81,10 @@ public class AttackScriptSasa : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine for ending the attack on the NPC from the player
+    /// </summary>
+    /// <returns></returns>
     IEnumerator attackEnd()
     {
         yield return new WaitForSeconds(0.1f);

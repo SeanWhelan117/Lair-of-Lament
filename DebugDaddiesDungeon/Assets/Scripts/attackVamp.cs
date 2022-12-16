@@ -6,6 +6,10 @@ public class attackVamp : MonoBehaviour
 {
 
     public vampEnemyScript enemy;
+    /// <summary>
+    /// Checks for enter of collision with the player so the Vampire can attack 
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -18,7 +22,10 @@ public class attackVamp : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Checks for exit of collision with the player so the Vampire can stop attacking
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

@@ -8,6 +8,11 @@ public class Battery : MonoBehaviour
     public torchcontroller torch;
     public float batteryLife= 0;
 
+    /// <summary>
+    /// Checks for collision with the player via tags.
+    /// If thats the case then the battery is consumed and adds to the battery level of the torch
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

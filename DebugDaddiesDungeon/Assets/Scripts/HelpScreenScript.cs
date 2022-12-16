@@ -15,6 +15,10 @@ public class HelpScreenScript : MonoBehaviour
     private Vector3 scaleFactor2;
 
     // Start is called before the first frame update
+    /// <summary>
+    /// Sets the intitial scales for the key sprites on the help screen
+    /// 1 scale is for what it has to be reset to, the other is to be added when the correct inputs are given
+    /// </summary>
     void Start()
     {
         scaleFactor = new Vector3(0.5f, 0.5f, 0.5f);
@@ -22,6 +26,11 @@ public class HelpScreenScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Update that jsut checks for key presses for the keys on the help screen.
+    /// Additionally resets the keys scales using the other scale factor when the keys are not being pressed.
+    /// Affected keys are A, D, Space, E, F and Mouse left
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))

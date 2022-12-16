@@ -7,22 +7,27 @@ using UnityEngine.SceneManagement;
 public class menuSystem : MonoBehaviour
 {
 
-
+    /// <summary>
+    ///Loads the Level Scene if the button is pressed
+    /// </summary>
     public void StartGame()
     {
-        Debug.Log("Game Started");
         SceneManager.LoadScene("Level");
     }
 
+    /// <summary>
+    /// Loads the Settings Scene if button is presed
+    /// </summary>
     public void OpenSettings()
     {
-        Debug.Log("Settings Opened");
         SceneManager.LoadScene("Settings Scene");
     }
 
+    /// <summary>
+    /// Quits the game if button is pressed 
+    /// </summary>
     public void  QuitGame()
     {
-        Debug.Log("game Quit");
         Application.Quit();
     }
 }

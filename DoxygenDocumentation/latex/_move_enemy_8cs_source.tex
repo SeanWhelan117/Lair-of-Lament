@@ -1,0 +1,36 @@
+\doxysection{Move\+Enemy.\+cs}
+\label{_move_enemy_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/MoveEnemy.cs@{DebugDaddiesDungeon/Assets/Scripts/MoveEnemy.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }MoveEnemy : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007     \textcolor{keyword}{public} MoveEnemy enemy;}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00009     \textcolor{keyword}{public} \textcolor{keywordtype}{float} speed = 2.0f;}
+\DoxyCodeLine{00010     \textcolor{keyword}{private} Vector2 pos;}
+\DoxyCodeLine{00011     \textcolor{keyword}{public} \textcolor{keywordtype}{short} damage = 5;}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00016     \textcolor{keyword}{private} \textcolor{keywordtype}{void} FixedUpdate()}
+\DoxyCodeLine{00017     \{}
+\DoxyCodeLine{00018         pos = enemy.transform.position;}
+\DoxyCodeLine{00019         enemy.transform.position = \textcolor{keyword}{new} Vector2(pos.x + speed * Time.deltaTime, 0);}
+\DoxyCodeLine{00020     \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00028     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnCollisionEnter2D(Collision2D collision)}
+\DoxyCodeLine{00029     \{}
+\DoxyCodeLine{00030         \textcolor{keywordflow}{if} (collision.gameObject.CompareTag(\textcolor{stringliteral}{"{}Wall"{}}))}
+\DoxyCodeLine{00031         \{}
+\DoxyCodeLine{00032             Debug.Log(\textcolor{stringliteral}{"{}I changed my speed and rotation"{}});}
+\DoxyCodeLine{00033             speed = -\/speed;}
+\DoxyCodeLine{00034             enemy.transform.eulerAngles = \textcolor{keyword}{new} Vector3(enemy.transform.eulerAngles.x, }
+\DoxyCodeLine{00035                                                    enemy.transform.eulerAngles.y + 180, }
+\DoxyCodeLine{00036                                                    enemy.transform.eulerAngles.z);}
+\DoxyCodeLine{00037         \}}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039 \}}
+
+\end{DoxyCode}

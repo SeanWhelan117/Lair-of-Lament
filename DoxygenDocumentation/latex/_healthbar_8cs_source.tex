@@ -1,0 +1,30 @@
+\doxysection{Healthbar.\+cs}
+\label{_healthbar_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/Healthbar.cs@{DebugDaddiesDungeon/Assets/Scripts/Healthbar.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{keyword}{public} \textcolor{keyword}{class }Healthbar : MonoBehaviour}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} Slider slider;}
+\DoxyCodeLine{00009     \textcolor{keyword}{public} Gradient gradient;}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} Image fill;}
+\DoxyCodeLine{00018     \textcolor{keyword}{public} \textcolor{keywordtype}{void} setHealth(\textcolor{keywordtype}{int} t\_health)}
+\DoxyCodeLine{00019     \{}
+\DoxyCodeLine{00020         slider.value = t\_health;}
+\DoxyCodeLine{00021         fill.color = gradient.Evaluate(slider.normalizedValue);}
+\DoxyCodeLine{00022     \}}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00030     \textcolor{keyword}{public} \textcolor{keywordtype}{void} setMaxHealth(\textcolor{keywordtype}{int} t\_health)}
+\DoxyCodeLine{00031     \{}
+\DoxyCodeLine{00032         slider.maxValue = t\_health;}
+\DoxyCodeLine{00033         slider.value = t\_health;}
+\DoxyCodeLine{00034 }
+\DoxyCodeLine{00035        fill.color = gradient.Evaluate(1f);}
+\DoxyCodeLine{00036     \}}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}

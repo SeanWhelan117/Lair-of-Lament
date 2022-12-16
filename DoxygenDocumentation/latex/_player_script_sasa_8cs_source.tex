@@ -1,0 +1,35 @@
+\doxysection{Player\+Script\+Sasa.\+cs}
+\label{_player_script_sasa_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/PlayerScriptSasa.cs@{DebugDaddiesDungeon/Assets/Scripts/PlayerScriptSasa.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 \textcolor{keyword}{public} \textcolor{keyword}{class }PlayerScriptSasa : MonoBehaviour}
+\DoxyCodeLine{00011 \{}
+\DoxyCodeLine{00012     \textcolor{keyword}{public} PlayerScriptSasa player;}
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014     \textcolor{keyword}{public} \textcolor{keywordtype}{short} health = 100; \textcolor{comment}{// Base HP set for player }}
+\DoxyCodeLine{00015     \textcolor{keyword}{public} \textcolor{keywordtype}{short} damage = 10; \textcolor{comment}{// Base damage for the player}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00023     \textcolor{keyword}{public} \textcolor{keywordtype}{void} playerTakesDamage(\textcolor{keywordtype}{short} t\_damage) \textcolor{comment}{// takes in the damage, takes it away from players health}}
+\DoxyCodeLine{00024     \{}
+\DoxyCodeLine{00025         health -\/= t\_damage;}
+\DoxyCodeLine{00026         \textcolor{keywordflow}{if} (isPlayerDead())}
+\DoxyCodeLine{00027         \{}
+\DoxyCodeLine{00028             Destroy(player);}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00036     \textcolor{keywordtype}{bool} isPlayerDead() \textcolor{comment}{// checks if the player is dead}}
+\DoxyCodeLine{00037     \{}
+\DoxyCodeLine{00038         \textcolor{keywordflow}{if} (health <= 0)}
+\DoxyCodeLine{00039             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00040         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00041             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00042     \}}
+\DoxyCodeLine{00043 \}}
+
+\end{DoxyCode}

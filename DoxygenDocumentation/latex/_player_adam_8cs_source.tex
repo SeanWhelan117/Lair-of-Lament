@@ -1,0 +1,41 @@
+\doxysection{Player\+Adam.\+cs}
+\label{_player_adam_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/PlayerAdam.cs@{DebugDaddiesDungeon/Assets/Scripts/PlayerAdam.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }PlayerAdam : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007     \textcolor{keywordtype}{float} speed = 5;}
+\DoxyCodeLine{00008     Rigidbody2D \_rb;}
+\DoxyCodeLine{00009     Vector2 movement;}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011     \textcolor{comment}{// Start is called before the first frame update}}
+\DoxyCodeLine{00015 \textcolor{comment}{}    \textcolor{keywordtype}{void} Start()}
+\DoxyCodeLine{00016     \{}
+\DoxyCodeLine{00017         \_rb = GetComponent<Rigidbody2D>();}
+\DoxyCodeLine{00018     \}}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020     \textcolor{comment}{// Update is called once per frame}}
+\DoxyCodeLine{00024 \textcolor{comment}{}    \textcolor{keywordtype}{void} Update()}
+\DoxyCodeLine{00025     \{}
+\DoxyCodeLine{00026         movement = \textcolor{keyword}{new} Vector2(Input.GetAxis(\textcolor{stringliteral}{"{}Horizontal"{}}), Input.GetAxis(\textcolor{stringliteral}{"{}Vertical"{}}));}
+\DoxyCodeLine{00027     \}}
+\DoxyCodeLine{00028 }
+\DoxyCodeLine{00032     \textcolor{keyword}{private} \textcolor{keywordtype}{void} FixedUpdate()}
+\DoxyCodeLine{00033     \{}
+\DoxyCodeLine{00034         movePlayer(movement);}
+\DoxyCodeLine{00035     \}}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00041     \textcolor{keywordtype}{void} movePlayer(Vector2 direction)}
+\DoxyCodeLine{00042     \{}
+\DoxyCodeLine{00043         \_rb.AddForce(direction * speed);}
+\DoxyCodeLine{00044     \}}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,91 @@
+\doxysection{NPCHealth.\+cs}
+\label{_n_p_c_health_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/NPCHealth.cs@{DebugDaddiesDungeon/Assets/Scripts/NPCHealth.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013 }
+\DoxyCodeLine{00014 \textcolor{keyword}{public} \textcolor{keyword}{class }NPCHealth : MonoBehaviour}
+\DoxyCodeLine{00015 \{}
+\DoxyCodeLine{00016     [Header(\textcolor{stringliteral}{"{}Objects and Scripts"{}})]}
+\DoxyCodeLine{00017     \textcolor{keyword}{public} GameObject npc;}
+\DoxyCodeLine{00018     \textcolor{keyword}{public} GameObject XP;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020     [Header(\textcolor{stringliteral}{"{}Variables"{}})]}
+\DoxyCodeLine{00021     \textcolor{keyword}{public} \textcolor{keywordtype}{short} health;}
+\DoxyCodeLine{00022   }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024     \textcolor{keyword}{public} \textcolor{keywordtype}{short} damage;}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00029     \textcolor{keyword}{private} \textcolor{keywordtype}{void} Start()}
+\DoxyCodeLine{00030     \{}
+\DoxyCodeLine{00031         assignHealthToNPC(); \textcolor{comment}{// This will assign health to the NPC, depending on the type of enemy!}}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00039     \textcolor{keyword}{public} \textcolor{keywordtype}{void} assignHealthToNPC() \textcolor{comment}{// DO NOT EDIT LAYERS}}
+\DoxyCodeLine{00040     \{}
+\DoxyCodeLine{00041         \textcolor{keywordflow}{if} (npc.layer == 10) \textcolor{comment}{// 10th layer is GRUNT !!!!DO NOT EDIT!!!!}}
+\DoxyCodeLine{00042         \{}
+\DoxyCodeLine{00043             damage = 4;}
+\DoxyCodeLine{00044             health = 10;}
+\DoxyCodeLine{00045         \}}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047         \textcolor{keywordflow}{if} (npc.layer == 11) \textcolor{comment}{// 11th layer is RANGED !!!!DO NOT EDIT!!!!}}
+\DoxyCodeLine{00048         \{}
+\DoxyCodeLine{00049             damage = 3;}
+\DoxyCodeLine{00050             health = 15;}
+\DoxyCodeLine{00051         \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053         \textcolor{keywordflow}{if} (npc.layer == 12) \textcolor{comment}{// 12th layer is BRUTE !!!!DO NOT EDIT!!!!}}
+\DoxyCodeLine{00054         \{}
+\DoxyCodeLine{00055             damage = 7;}
+\DoxyCodeLine{00056             health = 20;}
+\DoxyCodeLine{00057         \}}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059         \textcolor{keywordflow}{if} (npc.layer == 13) \textcolor{comment}{// 13th layer is BOSS !!!!DO NOT EDIT!!!!}}
+\DoxyCodeLine{00060         \{}
+\DoxyCodeLine{00061             damage = 0;}
+\DoxyCodeLine{00062             health = 50;}
+\DoxyCodeLine{00063         \}}
+\DoxyCodeLine{00064     \}}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066     \textcolor{keyword}{private} \textcolor{keywordtype}{void} Update()}
+\DoxyCodeLine{00067     \{}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069         }
+\DoxyCodeLine{00070     \}}
+\DoxyCodeLine{00071     }
+\DoxyCodeLine{00075     \textcolor{keyword}{private} \textcolor{keywordtype}{void} spawnXP()}
+\DoxyCodeLine{00076     \{}
+\DoxyCodeLine{00077         Instantiate(XP, this.gameObject.transform.position, \textcolor{keyword}{this}.gameObject.transform.rotation);}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079     \}}
+\DoxyCodeLine{00080 }
+\DoxyCodeLine{00088     \textcolor{keyword}{public} \textcolor{keywordtype}{void} NPCTakesDamage(\textcolor{keywordtype}{short} t\_health, \textcolor{keywordtype}{short} t\_damage) \textcolor{comment}{// takes in the damage done by the player and the NPCs health}}
+\DoxyCodeLine{00089     \{}
+\DoxyCodeLine{00090         t\_health -\/= t\_damage;}
+\DoxyCodeLine{00091         \textcolor{keywordflow}{if} (isNPCDead())}
+\DoxyCodeLine{00092         \{}
+\DoxyCodeLine{00093             Destroy(npc);}
+\DoxyCodeLine{00094             spawnXP();}
+\DoxyCodeLine{00095         \}}
+\DoxyCodeLine{00096     }
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098         \textcolor{comment}{//npc.health = t\_health;  Placeholder for getting npcs health set after taking damage}}
+\DoxyCodeLine{00099         health = t\_health;}
+\DoxyCodeLine{00100     \}}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00108     \textcolor{keywordtype}{bool} isNPCDead() \textcolor{comment}{// checks if the NPC is dead and returns a true or false}}
+\DoxyCodeLine{00109     \{}
+\DoxyCodeLine{00110         \textcolor{keywordflow}{if} (health <= 0)}
+\DoxyCodeLine{00111             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00112         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00113             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00114     \}}
+\DoxyCodeLine{00115 \}}
+
+\end{DoxyCode}

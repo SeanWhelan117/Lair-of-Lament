@@ -1,0 +1,38 @@
+\doxysection{Level\+System.\+cs}
+\label{_level_system_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/LevelSystem.cs@{DebugDaddiesDungeon/Assets/Scripts/LevelSystem.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{keyword}{public} \textcolor{keyword}{class }LevelSystem : MonoBehaviour}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} \textcolor{keywordtype}{int} level;}
+\DoxyCodeLine{00009     \textcolor{keyword}{public} \textcolor{keywordtype}{float} currentXp;}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} \textcolor{keywordtype}{float} requiredXp;}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012     [Header(\textcolor{stringliteral}{"{}UI"{}})]}
+\DoxyCodeLine{00013     \textcolor{keyword}{public} XPBarScript xpBar;}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     \textcolor{comment}{// Start is called before the first frame update}}
+\DoxyCodeLine{00020 \textcolor{comment}{}    \textcolor{keywordtype}{void} Start()}
+\DoxyCodeLine{00021     \{}
+\DoxyCodeLine{00022         xpBar.setXP(currentXp / requiredXp);}
+\DoxyCodeLine{00023     \}}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025     \textcolor{comment}{// Update is called once per frame}}
+\DoxyCodeLine{00029 \textcolor{comment}{}    \textcolor{keywordtype}{void} Update()}
+\DoxyCodeLine{00030     \{}
+\DoxyCodeLine{00031         xpBar.setXP(currentXp);}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00038     \textcolor{keywordtype}{void} GainExperienceFlatRate(\textcolor{keywordtype}{float} xpGained)}
+\DoxyCodeLine{00039     \{}
+\DoxyCodeLine{00040         currentXp = xpGained;}
+\DoxyCodeLine{00041     \}}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}

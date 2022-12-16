@@ -1,0 +1,28 @@
+\doxysection{Destroy\+By\+Contact.\+cs}
+\label{_destroy_by_contact_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/DestroyByContact.cs@{DebugDaddiesDungeon/Assets/Scripts/DestroyByContact.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }DestroyByContact : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00011     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnCollisionEnter2D(Collision2D collision)}
+\DoxyCodeLine{00012     \{}
+\DoxyCodeLine{00013         \textcolor{keywordflow}{if}(collision.gameObject.tag == \textcolor{stringliteral}{"{}Player"{}})}
+\DoxyCodeLine{00014         \{}
+\DoxyCodeLine{00015             Destroy(gameObject);}
+\DoxyCodeLine{00016         \}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018         \textcolor{keywordflow}{if} (collision.gameObject.tag == \textcolor{stringliteral}{"{}Ground"{}})}
+\DoxyCodeLine{00019         \{}
+\DoxyCodeLine{00020             Destroy(gameObject);}
+\DoxyCodeLine{00021         \}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024     \}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026 \}}
+
+\end{DoxyCode}

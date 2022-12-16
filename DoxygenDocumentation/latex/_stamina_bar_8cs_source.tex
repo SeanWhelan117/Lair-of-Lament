@@ -1,0 +1,32 @@
+\doxysection{Stamina\+Bar.\+cs}
+\label{_stamina_bar_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/StaminaBar.cs@{DebugDaddiesDungeon/Assets/Scripts/StaminaBar.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{keyword}{public} \textcolor{keyword}{class }StaminaBar : MonoBehaviour}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} Slider slider;}
+\DoxyCodeLine{00009     \textcolor{keyword}{public} Gradient gradient;}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} Image fill;}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00017     \textcolor{keyword}{public} \textcolor{keywordtype}{void} setStamina(\textcolor{keywordtype}{float} t\_stamina)}
+\DoxyCodeLine{00018     \{}
+\DoxyCodeLine{00019         slider.value = t\_stamina;}
+\DoxyCodeLine{00020         fill.color = gradient.Evaluate(slider.normalizedValue);}
+\DoxyCodeLine{00021     \}}
+\DoxyCodeLine{00022 }
+\DoxyCodeLine{00028     \textcolor{keyword}{public} \textcolor{keywordtype}{void} setMaxStamina(\textcolor{keywordtype}{float} t\_stamina)}
+\DoxyCodeLine{00029     \{}
+\DoxyCodeLine{00030         slider.maxValue = t\_stamina;}
+\DoxyCodeLine{00031         slider.value = t\_stamina;}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033         fill.color = gradient.Evaluate(1f);}
+\DoxyCodeLine{00034     \}}
+\DoxyCodeLine{00035     }
+\DoxyCodeLine{00036 \}}
+
+\end{DoxyCode}

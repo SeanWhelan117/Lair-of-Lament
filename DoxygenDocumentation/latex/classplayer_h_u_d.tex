@@ -1,0 +1,321 @@
+\doxysection{player\+HUD Class Reference}
+\label{classplayer_h_u_d}\index{playerHUD@{playerHUD}}
+Inheritance diagram for player\+HUD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classplayer_h_u_d}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Take\+Damage} (int t\+\_\+damage)
+\begin{DoxyCompactList}\small\item\em Take damage and then set the healthbar to represent that  \end{DoxyCompactList}\item 
+void \textbf{ reset\+Jumping\+Values} ()
+\begin{DoxyCompactList}\small\item\em reset the jumping values of the player after the coodown timer Both jumpforce and gravity scale are set  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ max\+Health} = 5
+\item 
+int \textbf{ current\+Health}
+\item 
+float \textbf{ stamina} = 0
+\item 
+float \textbf{ max\+Stamina} = 100
+\item 
+float \textbf{ stamina\+Increase} = 3
+\item 
+float \textbf{ stamina\+Drain} = 3
+\item 
+\textbf{ Healthbar} \textbf{ healthbar}
+\item 
+\textbf{ Stamina\+Bar} \textbf{ stamina\+Bar\+Script}
+\item 
+Slider \textbf{ stamina\+Bar}
+\item 
+Rigidbody2D \textbf{ rb}
+\item 
+float \textbf{ jump\+Force} = 0
+\item 
+int \textbf{ jump\+Count} = 0
+\item 
+int \textbf{ allowed\+Jumps} = 0
+\item 
+float \textbf{ gravity\+Scale} = 0
+\item 
+float \textbf{ falling\+Gravity\+Scale} = 0
+\item 
+bool \textbf{ is\+Grounded} = false
+\item 
+float \textbf{ player\+Speed} = 5.\+0f
+\item 
+bool \textbf{ m\+\_\+\+Facing\+Right} = true
+\item 
+bool \textbf{ m\+\_\+\+Facing\+Left} = false
+\item 
+Animator \textbf{ animator}
+\item 
+bool \textbf{ reset\+Jump} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \textbf{ 7} of file \textbf{ player\+HUD.\+cs}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classplayer_h_u_d_ae22ce86631ae2c5faff8804d5d9f9809}} 
+\index{playerHUD@{playerHUD}!resetJumpingValues@{resetJumpingValues}}
+\index{resetJumpingValues@{resetJumpingValues}!playerHUD@{playerHUD}}
+\doxysubsubsection{resetJumpingValues()}
+{\footnotesize\ttfamily void player\+HUD.\+reset\+Jumping\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reset the jumping values of the player after the coodown timer Both jumpforce and gravity scale are set  
+
+
+
+Definition at line \textbf{ 198} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a81cf3b8e49a03f0f432c8592c7eced54}} 
+\index{playerHUD@{playerHUD}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!playerHUD@{playerHUD}}
+\doxysubsubsection{TakeDamage()}
+{\footnotesize\ttfamily void player\+HUD.\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+damage }\end{DoxyParamCaption})}
+
+
+
+Take damage and then set the healthbar to represent that  
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+damage} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 141} of file \textbf{ player\+HUD.\+cs}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classplayer_h_u_d_a307cb55fac2fff4abfa3ec239cd52c8f}} 
+\index{playerHUD@{playerHUD}!allowedJumps@{allowedJumps}}
+\index{allowedJumps@{allowedJumps}!playerHUD@{playerHUD}}
+\doxysubsubsection{allowedJumps}
+{\footnotesize\ttfamily int player\+HUD.\+allowed\+Jumps = 0}
+
+
+
+Definition at line \textbf{ 26} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a536cb70cca818f818c5acaefdb4d4f56}} 
+\index{playerHUD@{playerHUD}!animator@{animator}}
+\index{animator@{animator}!playerHUD@{playerHUD}}
+\doxysubsubsection{animator}
+{\footnotesize\ttfamily Animator player\+HUD.\+animator}
+
+
+
+Definition at line \textbf{ 34} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a76665a263a4ca6759da7c08ce280fada}} 
+\index{playerHUD@{playerHUD}!currentHealth@{currentHealth}}
+\index{currentHealth@{currentHealth}!playerHUD@{playerHUD}}
+\doxysubsubsection{currentHealth}
+{\footnotesize\ttfamily int player\+HUD.\+current\+Health}
+
+
+
+Definition at line \textbf{ 11} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_ae7c96c6d66fc9a19e20a1979ce98a42f}} 
+\index{playerHUD@{playerHUD}!fallingGravityScale@{fallingGravityScale}}
+\index{fallingGravityScale@{fallingGravityScale}!playerHUD@{playerHUD}}
+\doxysubsubsection{fallingGravityScale}
+{\footnotesize\ttfamily float player\+HUD.\+falling\+Gravity\+Scale = 0}
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a2c450312c739a216a074d8f50c0a6340}} 
+\index{playerHUD@{playerHUD}!gravityScale@{gravityScale}}
+\index{gravityScale@{gravityScale}!playerHUD@{playerHUD}}
+\doxysubsubsection{gravityScale}
+{\footnotesize\ttfamily float player\+HUD.\+gravity\+Scale = 0}
+
+
+
+Definition at line \textbf{ 27} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a9c768b339a729f178a8b49a053f5488a}} 
+\index{playerHUD@{playerHUD}!healthbar@{healthbar}}
+\index{healthbar@{healthbar}!playerHUD@{playerHUD}}
+\doxysubsubsection{healthbar}
+{\footnotesize\ttfamily \textbf{ Healthbar} player\+HUD.\+healthbar}
+
+
+
+Definition at line \textbf{ 18} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_aeb0d5067ca4daa37ba3d7d122167d99e}} 
+\index{playerHUD@{playerHUD}!isGrounded@{isGrounded}}
+\index{isGrounded@{isGrounded}!playerHUD@{playerHUD}}
+\doxysubsubsection{isGrounded}
+{\footnotesize\ttfamily bool player\+HUD.\+is\+Grounded = false}
+
+
+
+Definition at line \textbf{ 29} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_ad6495757484f53136a45de764a62e60d}} 
+\index{playerHUD@{playerHUD}!jumpCount@{jumpCount}}
+\index{jumpCount@{jumpCount}!playerHUD@{playerHUD}}
+\doxysubsubsection{jumpCount}
+{\footnotesize\ttfamily int player\+HUD.\+jump\+Count = 0}
+
+
+
+Definition at line \textbf{ 25} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_ac7be5669e7ca5f6857f24303c26c7673}} 
+\index{playerHUD@{playerHUD}!jumpForce@{jumpForce}}
+\index{jumpForce@{jumpForce}!playerHUD@{playerHUD}}
+\doxysubsubsection{jumpForce}
+{\footnotesize\ttfamily float player\+HUD.\+jump\+Force = 0}
+
+
+
+Definition at line \textbf{ 24} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a353fcff5b22d0fc1a0b5f0cd28e69bef}} 
+\index{playerHUD@{playerHUD}!m\_FacingLeft@{m\_FacingLeft}}
+\index{m\_FacingLeft@{m\_FacingLeft}!playerHUD@{playerHUD}}
+\doxysubsubsection{m\_FacingLeft}
+{\footnotesize\ttfamily bool player\+HUD.\+m\+\_\+\+Facing\+Left = false}
+
+
+
+Definition at line \textbf{ 32} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a3e38ce053f29078552122d0a5431e6aa}} 
+\index{playerHUD@{playerHUD}!m\_FacingRight@{m\_FacingRight}}
+\index{m\_FacingRight@{m\_FacingRight}!playerHUD@{playerHUD}}
+\doxysubsubsection{m\_FacingRight}
+{\footnotesize\ttfamily bool player\+HUD.\+m\+\_\+\+Facing\+Right = true}
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a6ffdd4cfe243356090e2f4098e297510}} 
+\index{playerHUD@{playerHUD}!maxHealth@{maxHealth}}
+\index{maxHealth@{maxHealth}!playerHUD@{playerHUD}}
+\doxysubsubsection{maxHealth}
+{\footnotesize\ttfamily int player\+HUD.\+max\+Health = 5}
+
+
+
+Definition at line \textbf{ 10} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a15e1ce99a298db6438d3455cb6a2b0af}} 
+\index{playerHUD@{playerHUD}!maxStamina@{maxStamina}}
+\index{maxStamina@{maxStamina}!playerHUD@{playerHUD}}
+\doxysubsubsection{maxStamina}
+{\footnotesize\ttfamily float player\+HUD.\+max\+Stamina = 100}
+
+
+
+Definition at line \textbf{ 13} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a2dc90a9cd1647a2a5bd77f41a036c823}} 
+\index{playerHUD@{playerHUD}!playerSpeed@{playerSpeed}}
+\index{playerSpeed@{playerSpeed}!playerHUD@{playerHUD}}
+\doxysubsubsection{playerSpeed}
+{\footnotesize\ttfamily float player\+HUD.\+player\+Speed = 5.\+0f}
+
+
+
+Definition at line \textbf{ 30} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_aec42a91719e5599b6f66b39a09950ca2}} 
+\index{playerHUD@{playerHUD}!rb@{rb}}
+\index{rb@{rb}!playerHUD@{playerHUD}}
+\doxysubsubsection{rb}
+{\footnotesize\ttfamily Rigidbody2D player\+HUD.\+rb}
+
+
+
+Definition at line \textbf{ 23} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a43f76ea74e164594e29f0f4ae8bd9853}} 
+\index{playerHUD@{playerHUD}!resetJump@{resetJump}}
+\index{resetJump@{resetJump}!playerHUD@{playerHUD}}
+\doxysubsubsection{resetJump}
+{\footnotesize\ttfamily bool player\+HUD.\+reset\+Jump = false}
+
+
+
+Definition at line \textbf{ 35} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a81cafc2a4de03853731be876b47ddf22}} 
+\index{playerHUD@{playerHUD}!stamina@{stamina}}
+\index{stamina@{stamina}!playerHUD@{playerHUD}}
+\doxysubsubsection{stamina}
+{\footnotesize\ttfamily float player\+HUD.\+stamina = 0}
+
+
+
+Definition at line \textbf{ 12} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a9fb8ebf14f7c7471807bc9f8b9d1fb68}} 
+\index{playerHUD@{playerHUD}!staminaBar@{staminaBar}}
+\index{staminaBar@{staminaBar}!playerHUD@{playerHUD}}
+\doxysubsubsection{staminaBar}
+{\footnotesize\ttfamily Slider player\+HUD.\+stamina\+Bar}
+
+
+
+Definition at line \textbf{ 20} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a3707bcf441c8a3a85c73c2a0edac2ad9}} 
+\index{playerHUD@{playerHUD}!staminaBarScript@{staminaBarScript}}
+\index{staminaBarScript@{staminaBarScript}!playerHUD@{playerHUD}}
+\doxysubsubsection{staminaBarScript}
+{\footnotesize\ttfamily \textbf{ Stamina\+Bar} player\+HUD.\+stamina\+Bar\+Script}
+
+
+
+Definition at line \textbf{ 19} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_a2cb4127e289a508f6ee0ea6aecad1076}} 
+\index{playerHUD@{playerHUD}!staminaDrain@{staminaDrain}}
+\index{staminaDrain@{staminaDrain}!playerHUD@{playerHUD}}
+\doxysubsubsection{staminaDrain}
+{\footnotesize\ttfamily float player\+HUD.\+stamina\+Drain = 3}
+
+
+
+Definition at line \textbf{ 15} of file \textbf{ player\+HUD.\+cs}.
+
+\mbox{\label{classplayer_h_u_d_ad0ca9789a33fa3e9b542ef578b08c119}} 
+\index{playerHUD@{playerHUD}!staminaIncrease@{staminaIncrease}}
+\index{staminaIncrease@{staminaIncrease}!playerHUD@{playerHUD}}
+\doxysubsubsection{staminaIncrease}
+{\footnotesize\ttfamily float player\+HUD.\+stamina\+Increase = 3}
+
+
+
+Definition at line \textbf{ 14} of file \textbf{ player\+HUD.\+cs}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug\+Daddies\+Dungeon/\+Assets/\+Scripts/\textbf{ player\+HUD.\+cs}\end{DoxyCompactItemize}

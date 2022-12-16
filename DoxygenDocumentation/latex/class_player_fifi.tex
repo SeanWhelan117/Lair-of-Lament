@@ -1,0 +1,488 @@
+\doxysection{Player\+Fifi Class Reference}
+\label{class_player_fifi}\index{PlayerFifi@{PlayerFifi}}
+Inheritance diagram for Player\+Fifi\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_fifi}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Take\+Damage} (int t\+\_\+damage)
+\begin{DoxyCompactList}\small\item\em takes in t\+\_\+damage as a parameter and removes that from the players current health Sets the value of the healthbar UI based on the new health amount calls function which returns true if the player is killed  \end{DoxyCompactList}\item 
+void \textbf{ increase\+Player\+Max\+Health} ()
+\begin{DoxyCompactList}\small\item\em Increase the max health of the player and set the players max health to this this is one of the Upgrades with level up  \end{DoxyCompactList}\item 
+void \textbf{ reset\+Jumping\+Values} ()
+\begin{DoxyCompactList}\small\item\em This function resets the values for jumping back to default after the 5 second timer.  \end{DoxyCompactList}\item 
+void \textbf{ reset\+Timer} ()
+\begin{DoxyCompactList}\small\item\em resets the timer for the double jump pickups.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ max\+Health} = 5
+\item 
+int \textbf{ current\+Health}
+\item 
+float \textbf{ stamina} = 100
+\item 
+float \textbf{ max\+Stamina} = 100
+\item 
+float \textbf{ stamina\+Increase} = 3
+\item 
+float \textbf{ stamina\+Drain} = 3
+\item 
+\textbf{ Healthbar} \textbf{ healthbar}
+\item 
+\textbf{ Stamina\+Bar} \textbf{ stamina\+Bar\+Script}
+\item 
+Slider \textbf{ stamina\+Bar}
+\item 
+\textbf{ XPBar\+Script} \textbf{ xp\+Bar\+Script}
+\item 
+Slider \textbf{ xp\+Bar\+Slider}
+\item 
+Rigidbody2D \textbf{ rb}
+\item 
+float \textbf{ jump\+Force} = 0
+\item 
+int \textbf{ jump\+Count} = 0
+\item 
+int \textbf{ allowed\+Jumps} = 0
+\item 
+float \textbf{ gravity\+Scale} = 0
+\item 
+float \textbf{ falling\+Gravity\+Scale} = 0
+\item 
+bool \textbf{ is\+Grounded} = false
+\item 
+float \textbf{ PLAYER\+\_\+\+SPEED\+\_\+\+DEFAULT} = 5.\+0f
+\item 
+float \textbf{ player\+Speed} = 5.\+0f
+\item 
+bool \textbf{ m\+\_\+\+Facing\+Right} = true
+\item 
+bool \textbf{ m\+\_\+\+Facing\+Left} = false
+\item 
+Animator \textbf{ animator}
+\item 
+bool \textbf{ reset\+Jump} = false
+\item 
+bool \textbf{ torch\+In\+Hand} = true
+\item 
+short \textbf{ damage} = 10
+\item 
+int \textbf{ level} = 1
+\item 
+short \textbf{ level\+Points} = 0
+\item 
+float \textbf{ current\+Xp}
+\item 
+float \textbf{ required\+Xp}
+\item 
+Text \textbf{ level\+Text}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Player\+Fifi} \textbf{ instance} = null
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \textbf{ 10} of file \textbf{ Player\+Fifi.\+cs}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_player_fifi_ad80d80026a6fb2743c10d0445602127e}} 
+\index{PlayerFifi@{PlayerFifi}!increasePlayerMaxHealth@{increasePlayerMaxHealth}}
+\index{increasePlayerMaxHealth@{increasePlayerMaxHealth}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{increasePlayerMaxHealth()}
+{\footnotesize\ttfamily void Player\+Fifi.\+increase\+Player\+Max\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Increase the max health of the player and set the players max health to this this is one of the Upgrades with level up  
+
+
+
+Definition at line \textbf{ 291} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a37c0aaa42292342b8d57197ec53cff10}} 
+\index{PlayerFifi@{PlayerFifi}!resetJumpingValues@{resetJumpingValues}}
+\index{resetJumpingValues@{resetJumpingValues}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{resetJumpingValues()}
+{\footnotesize\ttfamily void Player\+Fifi.\+reset\+Jumping\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function resets the values for jumping back to default after the 5 second timer.  
+
+
+
+Definition at line \textbf{ 392} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a4c4f4e577c0a44957f74d5240557126d}} 
+\index{PlayerFifi@{PlayerFifi}!resetTimer@{resetTimer}}
+\index{resetTimer@{resetTimer}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{resetTimer()}
+{\footnotesize\ttfamily void Player\+Fifi.\+reset\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+resets the timer for the double jump pickups.  
+
+
+
+Definition at line \textbf{ 409} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_abe5766f41d778e185b3e2a27265503f6}} 
+\index{PlayerFifi@{PlayerFifi}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{TakeDamage()}
+{\footnotesize\ttfamily void Player\+Fifi.\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{t\+\_\+damage }\end{DoxyParamCaption})}
+
+
+
+takes in t\+\_\+damage as a parameter and removes that from the players current health Sets the value of the healthbar UI based on the new health amount calls function which returns true if the player is killed  
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+damage} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 261} of file \textbf{ Player\+Fifi.\+cs}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_player_fifi_a7bb705a908a819086ff31f5c489ae0d6}} 
+\index{PlayerFifi@{PlayerFifi}!allowedJumps@{allowedJumps}}
+\index{allowedJumps@{allowedJumps}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{allowedJumps}
+{\footnotesize\ttfamily int Player\+Fifi.\+allowed\+Jumps = 0}
+
+
+
+Definition at line \textbf{ 31} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a2a001363ae2ae7c0d0ac6f221cb4c497}} 
+\index{PlayerFifi@{PlayerFifi}!animator@{animator}}
+\index{animator@{animator}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{animator}
+{\footnotesize\ttfamily Animator Player\+Fifi.\+animator}
+
+
+
+Definition at line \textbf{ 40} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_aba0d67ba431021358dcef636161f4d85}} 
+\index{PlayerFifi@{PlayerFifi}!currentHealth@{currentHealth}}
+\index{currentHealth@{currentHealth}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{currentHealth}
+{\footnotesize\ttfamily int Player\+Fifi.\+current\+Health}
+
+
+
+Definition at line \textbf{ 14} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a010af23fbab4dfce47c22b58335648d7}} 
+\index{PlayerFifi@{PlayerFifi}!currentXp@{currentXp}}
+\index{currentXp@{currentXp}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{currentXp}
+{\footnotesize\ttfamily float Player\+Fifi.\+current\+Xp}
+
+
+
+Definition at line \textbf{ 53} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a0ffec9ccb388666cdf37f9088f26ad97}} 
+\index{PlayerFifi@{PlayerFifi}!damage@{damage}}
+\index{damage@{damage}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{damage}
+{\footnotesize\ttfamily short Player\+Fifi.\+damage = 10}
+
+
+
+Definition at line \textbf{ 48} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_aec37ecd396d64161970063c4864a2c2c}} 
+\index{PlayerFifi@{PlayerFifi}!fallingGravityScale@{fallingGravityScale}}
+\index{fallingGravityScale@{fallingGravityScale}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{fallingGravityScale}
+{\footnotesize\ttfamily float Player\+Fifi.\+falling\+Gravity\+Scale = 0}
+
+
+
+Definition at line \textbf{ 33} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_aec60f55f246d5db2e2e3ac512bd8b381}} 
+\index{PlayerFifi@{PlayerFifi}!gravityScale@{gravityScale}}
+\index{gravityScale@{gravityScale}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{gravityScale}
+{\footnotesize\ttfamily float Player\+Fifi.\+gravity\+Scale = 0}
+
+
+
+Definition at line \textbf{ 32} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a88a966838f2b9f15fc8cc50ecb681cb8}} 
+\index{PlayerFifi@{PlayerFifi}!healthbar@{healthbar}}
+\index{healthbar@{healthbar}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{healthbar}
+{\footnotesize\ttfamily \textbf{ Healthbar} Player\+Fifi.\+healthbar}
+
+
+
+Definition at line \textbf{ 21} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_ae4a6ad07901c4f6b07ea38499b7f47dd}} 
+\index{PlayerFifi@{PlayerFifi}!instance@{instance}}
+\index{instance@{instance}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{instance}
+{\footnotesize\ttfamily \textbf{ Player\+Fifi} Player\+Fifi.\+instance = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \textbf{ 57} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a43f167d8e55037495436496fa5557349}} 
+\index{PlayerFifi@{PlayerFifi}!isGrounded@{isGrounded}}
+\index{isGrounded@{isGrounded}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{isGrounded}
+{\footnotesize\ttfamily bool Player\+Fifi.\+is\+Grounded = false}
+
+
+
+Definition at line \textbf{ 34} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a7baac7bcbe699a5b6bb6ff5db3574c8a}} 
+\index{PlayerFifi@{PlayerFifi}!jumpCount@{jumpCount}}
+\index{jumpCount@{jumpCount}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{jumpCount}
+{\footnotesize\ttfamily int Player\+Fifi.\+jump\+Count = 0}
+
+
+
+Definition at line \textbf{ 30} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a48b6eb72e674bd1e5327a350f4dcec32}} 
+\index{PlayerFifi@{PlayerFifi}!jumpForce@{jumpForce}}
+\index{jumpForce@{jumpForce}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{jumpForce}
+{\footnotesize\ttfamily float Player\+Fifi.\+jump\+Force = 0}
+
+
+
+Definition at line \textbf{ 29} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a6ba2e4b3ed947ab2d7489aac914eba08}} 
+\index{PlayerFifi@{PlayerFifi}!level@{level}}
+\index{level@{level}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{level}
+{\footnotesize\ttfamily int Player\+Fifi.\+level = 1}
+
+
+
+Definition at line \textbf{ 51} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a55e35466694b5c99985d6a78c7cc0af3}} 
+\index{PlayerFifi@{PlayerFifi}!levelPoints@{levelPoints}}
+\index{levelPoints@{levelPoints}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{levelPoints}
+{\footnotesize\ttfamily short Player\+Fifi.\+level\+Points = 0}
+
+
+
+Definition at line \textbf{ 52} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a66c4a88a3ade5bde1a25811c5a0b5f12}} 
+\index{PlayerFifi@{PlayerFifi}!levelText@{levelText}}
+\index{levelText@{levelText}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{levelText}
+{\footnotesize\ttfamily Text Player\+Fifi.\+level\+Text}
+
+
+
+Definition at line \textbf{ 55} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a361bd5d87224099e68c7167b8d801eaa}} 
+\index{PlayerFifi@{PlayerFifi}!m\_FacingLeft@{m\_FacingLeft}}
+\index{m\_FacingLeft@{m\_FacingLeft}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{m\_FacingLeft}
+{\footnotesize\ttfamily bool Player\+Fifi.\+m\+\_\+\+Facing\+Left = false}
+
+
+
+Definition at line \textbf{ 38} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a999730e080a3710243faa10dea4ae79d}} 
+\index{PlayerFifi@{PlayerFifi}!m\_FacingRight@{m\_FacingRight}}
+\index{m\_FacingRight@{m\_FacingRight}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{m\_FacingRight}
+{\footnotesize\ttfamily bool Player\+Fifi.\+m\+\_\+\+Facing\+Right = true}
+
+
+
+Definition at line \textbf{ 37} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_aea54205653b0195b237f034d6d593bcc}} 
+\index{PlayerFifi@{PlayerFifi}!maxHealth@{maxHealth}}
+\index{maxHealth@{maxHealth}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{maxHealth}
+{\footnotesize\ttfamily int Player\+Fifi.\+max\+Health = 5}
+
+
+
+Definition at line \textbf{ 13} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a6c698e72293244f1d025182341a018c4}} 
+\index{PlayerFifi@{PlayerFifi}!maxStamina@{maxStamina}}
+\index{maxStamina@{maxStamina}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{maxStamina}
+{\footnotesize\ttfamily float Player\+Fifi.\+max\+Stamina = 100}
+
+
+
+Definition at line \textbf{ 16} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_af3c103a7d82fdba130881f4b1b48a934}} 
+\index{PlayerFifi@{PlayerFifi}!PLAYER\_SPEED\_DEFAULT@{PLAYER\_SPEED\_DEFAULT}}
+\index{PLAYER\_SPEED\_DEFAULT@{PLAYER\_SPEED\_DEFAULT}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{PLAYER\_SPEED\_DEFAULT}
+{\footnotesize\ttfamily float Player\+Fifi.\+PLAYER\+\_\+\+SPEED\+\_\+\+DEFAULT = 5.\+0f}
+
+
+
+Definition at line \textbf{ 35} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a8d12321c5b2306e8c54c3ef26e90fa66}} 
+\index{PlayerFifi@{PlayerFifi}!playerSpeed@{playerSpeed}}
+\index{playerSpeed@{playerSpeed}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{playerSpeed}
+{\footnotesize\ttfamily float Player\+Fifi.\+player\+Speed = 5.\+0f}
+
+
+
+Definition at line \textbf{ 36} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a7616cafa2c42d653e3cc777df9451915}} 
+\index{PlayerFifi@{PlayerFifi}!rb@{rb}}
+\index{rb@{rb}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{rb}
+{\footnotesize\ttfamily Rigidbody2D Player\+Fifi.\+rb}
+
+
+
+Definition at line \textbf{ 28} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_aaf7702b3a8d50c8124919e4927b6a9be}} 
+\index{PlayerFifi@{PlayerFifi}!requiredXp@{requiredXp}}
+\index{requiredXp@{requiredXp}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{requiredXp}
+{\footnotesize\ttfamily float Player\+Fifi.\+required\+Xp}
+
+
+
+Definition at line \textbf{ 54} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a10144a1a12bde9d4ccf48426117828b9}} 
+\index{PlayerFifi@{PlayerFifi}!resetJump@{resetJump}}
+\index{resetJump@{resetJump}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{resetJump}
+{\footnotesize\ttfamily bool Player\+Fifi.\+reset\+Jump = false}
+
+
+
+Definition at line \textbf{ 41} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a5c184d9703a6d00779892f47c41dca80}} 
+\index{PlayerFifi@{PlayerFifi}!stamina@{stamina}}
+\index{stamina@{stamina}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{stamina}
+{\footnotesize\ttfamily float Player\+Fifi.\+stamina = 100}
+
+
+
+Definition at line \textbf{ 15} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a5551f56960d75dc589866d72ba8553d6}} 
+\index{PlayerFifi@{PlayerFifi}!staminaBar@{staminaBar}}
+\index{staminaBar@{staminaBar}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{staminaBar}
+{\footnotesize\ttfamily Slider Player\+Fifi.\+stamina\+Bar}
+
+
+
+Definition at line \textbf{ 23} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a20792ee884dfc7696eedff73a31fab44}} 
+\index{PlayerFifi@{PlayerFifi}!staminaBarScript@{staminaBarScript}}
+\index{staminaBarScript@{staminaBarScript}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{staminaBarScript}
+{\footnotesize\ttfamily \textbf{ Stamina\+Bar} Player\+Fifi.\+stamina\+Bar\+Script}
+
+
+
+Definition at line \textbf{ 22} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a739b102f081171ed1e65c6f23bca4cef}} 
+\index{PlayerFifi@{PlayerFifi}!staminaDrain@{staminaDrain}}
+\index{staminaDrain@{staminaDrain}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{staminaDrain}
+{\footnotesize\ttfamily float Player\+Fifi.\+stamina\+Drain = 3}
+
+
+
+Definition at line \textbf{ 18} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a91fdd03479e1ea8a17d3d342d6b21c8e}} 
+\index{PlayerFifi@{PlayerFifi}!staminaIncrease@{staminaIncrease}}
+\index{staminaIncrease@{staminaIncrease}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{staminaIncrease}
+{\footnotesize\ttfamily float Player\+Fifi.\+stamina\+Increase = 3}
+
+
+
+Definition at line \textbf{ 17} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a6c4c06248159ec00a9cb8fc156a70ad9}} 
+\index{PlayerFifi@{PlayerFifi}!torchInHand@{torchInHand}}
+\index{torchInHand@{torchInHand}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{torchInHand}
+{\footnotesize\ttfamily bool Player\+Fifi.\+torch\+In\+Hand = true}
+
+
+
+Definition at line \textbf{ 43} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_ab4d9be1d53ab62cb3dfe973fe1f055fa}} 
+\index{PlayerFifi@{PlayerFifi}!xpBarScript@{xpBarScript}}
+\index{xpBarScript@{xpBarScript}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{xpBarScript}
+{\footnotesize\ttfamily \textbf{ XPBar\+Script} Player\+Fifi.\+xp\+Bar\+Script}
+
+
+
+Definition at line \textbf{ 24} of file \textbf{ Player\+Fifi.\+cs}.
+
+\mbox{\label{class_player_fifi_a4dfb57bd979a1dc18ada2b834f92f71c}} 
+\index{PlayerFifi@{PlayerFifi}!xpBarSlider@{xpBarSlider}}
+\index{xpBarSlider@{xpBarSlider}!PlayerFifi@{PlayerFifi}}
+\doxysubsubsection{xpBarSlider}
+{\footnotesize\ttfamily Slider Player\+Fifi.\+xp\+Bar\+Slider}
+
+
+
+Definition at line \textbf{ 25} of file \textbf{ Player\+Fifi.\+cs}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug\+Daddies\+Dungeon/\+Assets/\+Scripts/\textbf{ Player\+Fifi.\+cs}\end{DoxyCompactItemize}

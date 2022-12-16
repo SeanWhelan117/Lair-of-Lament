@@ -1,0 +1,185 @@
+\doxysection{player\+HUD.\+cs}
+\label{player_h_u_d_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/playerHUD.cs@{DebugDaddiesDungeon/Assets/Scripts/playerHUD.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00005 \textcolor{keyword}{using }UnityEngine.SceneManagement;}
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{keyword}{public} \textcolor{keyword}{class }playerHUD : MonoBehaviour}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009     [Header(\textcolor{stringliteral}{"{}Health and stamina variables"{}})]}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} \textcolor{keywordtype}{int} maxHealth = 5;}
+\DoxyCodeLine{00011     \textcolor{keyword}{public} \textcolor{keywordtype}{int} currentHealth;}
+\DoxyCodeLine{00012     \textcolor{keyword}{public} \textcolor{keywordtype}{float} stamina = 0;}
+\DoxyCodeLine{00013     \textcolor{keyword}{public} \textcolor{keywordtype}{float} maxStamina = 100;}
+\DoxyCodeLine{00014     \textcolor{keyword}{public} \textcolor{keywordtype}{float} staminaIncrease = 3;}
+\DoxyCodeLine{00015     \textcolor{keyword}{public} \textcolor{keywordtype}{float} staminaDrain = 3;}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     [Header(\textcolor{stringliteral}{"{}Healthbar and stamina bar"{}})]}
+\DoxyCodeLine{00018     \textcolor{keyword}{public} Healthbar healthbar;}
+\DoxyCodeLine{00019     \textcolor{keyword}{public} StaminaBar staminaBarScript;}
+\DoxyCodeLine{00020     \textcolor{keyword}{public} Slider staminaBar;}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00022     [Header(\textcolor{stringliteral}{"{}Player stuff"{}})]}
+\DoxyCodeLine{00023     \textcolor{keyword}{public} Rigidbody2D rb;}
+\DoxyCodeLine{00024     \textcolor{keyword}{public} \textcolor{keywordtype}{float} jumpForce = 0;}
+\DoxyCodeLine{00025     \textcolor{keyword}{public} \textcolor{keywordtype}{int} jumpCount = 0;}
+\DoxyCodeLine{00026     \textcolor{keyword}{public} \textcolor{keywordtype}{int} allowedJumps = 0;}
+\DoxyCodeLine{00027     \textcolor{keyword}{public} \textcolor{keywordtype}{float} gravityScale = 0;}
+\DoxyCodeLine{00028     \textcolor{keyword}{public} \textcolor{keywordtype}{float} fallingGravityScale = 0;}
+\DoxyCodeLine{00029     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} isGrounded = \textcolor{keyword}{false};}
+\DoxyCodeLine{00030     \textcolor{keyword}{public} \textcolor{keywordtype}{float} playerSpeed = 5.0f;}
+\DoxyCodeLine{00031     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} m\_FacingRight = \textcolor{keyword}{true};}
+\DoxyCodeLine{00032     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} m\_FacingLeft = \textcolor{keyword}{false};}
+\DoxyCodeLine{00033     Vector2 savedlocalScale;}
+\DoxyCodeLine{00034     \textcolor{keyword}{public} Animator animator;}
+\DoxyCodeLine{00035     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} resetJump = \textcolor{keyword}{false};}
+\DoxyCodeLine{00036 }
+\DoxyCodeLine{00037     \textcolor{keyword}{private} \textcolor{keywordtype}{float} cooldownTimer = 5;}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00045     \textcolor{keywordtype}{void} Start()}
+\DoxyCodeLine{00046     \{}
+\DoxyCodeLine{00047         currentHealth = maxHealth;}
+\DoxyCodeLine{00048         healthbar.setMaxHealth(maxHealth);}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050         stamina = maxStamina;}
+\DoxyCodeLine{00051         staminaBarScript.setMaxStamina(stamina);}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053         rb = GetComponent<Rigidbody2D>();}
+\DoxyCodeLine{00054         savedlocalScale = transform.localScale;}
+\DoxyCodeLine{00055     \}}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057     \textcolor{comment}{// Update is called once per frame}}
+\DoxyCodeLine{00063 \textcolor{comment}{}    \textcolor{keywordtype}{void} Update()}
+\DoxyCodeLine{00064     \{}
+\DoxyCodeLine{00066         var horizontalInput = Input.GetAxisRaw(\textcolor{stringliteral}{"{}Horizontal"{}});}
+\DoxyCodeLine{00067         rb.velocity = \textcolor{keyword}{new} Vector2(horizontalInput * playerSpeed, rb.velocity.y);}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069         \textcolor{keywordflow}{if} (rb.velocity.x > 0.001f)}
+\DoxyCodeLine{00070         \{}
+\DoxyCodeLine{00071             animator.SetFloat(\textcolor{stringliteral}{"{}speed"{}}, Mathf.Abs(playerSpeed));}
+\DoxyCodeLine{00072             transform.localScale = \textcolor{keyword}{new} Vector2(savedlocalScale.x, savedlocalScale.y);}
+\DoxyCodeLine{00073             m\_FacingLeft = \textcolor{keyword}{false};}
+\DoxyCodeLine{00074             m\_FacingRight = \textcolor{keyword}{true};}
+\DoxyCodeLine{00075             DecreaseEnergy();}
+\DoxyCodeLine{00076         \}}
+\DoxyCodeLine{00077         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rb.velocity.x < -\/0.001f)}
+\DoxyCodeLine{00078         \{}
+\DoxyCodeLine{00079             animator.SetFloat(\textcolor{stringliteral}{"{}speed"{}}, Mathf.Abs(playerSpeed));}
+\DoxyCodeLine{00080             transform.localScale = \textcolor{keyword}{new} Vector2(-\/savedlocalScale.x, savedlocalScale.y);}
+\DoxyCodeLine{00081             m\_FacingLeft = \textcolor{keyword}{true};}
+\DoxyCodeLine{00082             m\_FacingRight = \textcolor{keyword}{false};}
+\DoxyCodeLine{00083             DecreaseEnergy();}
+\DoxyCodeLine{00084         \}}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086         \textcolor{keywordflow}{if} (rb.velocity.x == 0.0f)}
+\DoxyCodeLine{00087         \{}
+\DoxyCodeLine{00088             animator.SetFloat(\textcolor{stringliteral}{"{}speed"{}}, Mathf.Abs(0));}
+\DoxyCodeLine{00089             IncreaseEnergy();}
+\DoxyCodeLine{00090         \}}
+\DoxyCodeLine{00091 }
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097         \textcolor{keywordflow}{if} (Input.GetKeyDown(KeyCode.Space) \&\& isGrounded == \textcolor{keyword}{true})}
+\DoxyCodeLine{00098         \{}
+\DoxyCodeLine{00099             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);}
+\DoxyCodeLine{00100             animator.SetBool(\textcolor{stringliteral}{"{}isJumping"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{00101             jumpCount += 1;}
+\DoxyCodeLine{00102             \textcolor{keywordflow}{if} (jumpCount == allowedJumps)}
+\DoxyCodeLine{00103             \{}
+\DoxyCodeLine{00104                 isGrounded = \textcolor{keyword}{false};}
+\DoxyCodeLine{00105             \}}
+\DoxyCodeLine{00106         \}}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108         \textcolor{keywordflow}{if} (rb.velocity.y >= 0)}
+\DoxyCodeLine{00109         \{}
+\DoxyCodeLine{00110             rb.gravityScale = gravityScale;}
+\DoxyCodeLine{00111         \}}
+\DoxyCodeLine{00112         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rb.velocity.y < 0)}
+\DoxyCodeLine{00113         \{}
+\DoxyCodeLine{00114             rb.gravityScale = fallingGravityScale;}
+\DoxyCodeLine{00115         \}}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117         staminaBar.value = stamina;}
+\DoxyCodeLine{00118         \textcolor{keywordflow}{if}(stamina >= 20.0f)}
+\DoxyCodeLine{00119         \{}
+\DoxyCodeLine{00120             playerSpeed = 5.0f;}
+\DoxyCodeLine{00121         \}}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124         \textcolor{keywordflow}{if}(currentHealth <= 0)}
+\DoxyCodeLine{00125         \{}
+\DoxyCodeLine{00126             Debug.Log(\textcolor{stringliteral}{"{}The Player Died -\/ Do our restart scene "{}});}
+\DoxyCodeLine{00127             SceneManager.LoadScene(\textcolor{stringliteral}{"{}Adams Scene 1"{}}); \textcolor{comment}{//currently reloading my level for now, we can restart the entire game here.}}
+\DoxyCodeLine{00128         \}}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130         \textcolor{keywordflow}{if}(resetJump == \textcolor{keyword}{true})}
+\DoxyCodeLine{00131         \{}
+\DoxyCodeLine{00132             resetJumpingValues();}
+\DoxyCodeLine{00133         \}}
+\DoxyCodeLine{00134 }
+\DoxyCodeLine{00135     \}}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00141     \textcolor{keyword}{public} \textcolor{keywordtype}{void} TakeDamage(\textcolor{keywordtype}{int} t\_damage)}
+\DoxyCodeLine{00142     \{}
+\DoxyCodeLine{00143         currentHealth -\/= t\_damage;}
+\DoxyCodeLine{00144         healthbar.setHealth(currentHealth);}
+\DoxyCodeLine{00145     \}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00150     \textcolor{keyword}{private} \textcolor{keywordtype}{void} DecreaseEnergy()}
+\DoxyCodeLine{00151     \{}
+\DoxyCodeLine{00152         \textcolor{keywordflow}{if}(stamina != 0.0f)}
+\DoxyCodeLine{00153         \{}
+\DoxyCodeLine{00154             stamina -\/= staminaDrain * Time.deltaTime;}
+\DoxyCodeLine{00155         \}}
+\DoxyCodeLine{00156 }
+\DoxyCodeLine{00157         \textcolor{keywordflow}{if}(stamina <= 0)}
+\DoxyCodeLine{00158         \{}
+\DoxyCodeLine{00159             stamina = 0.0f;}
+\DoxyCodeLine{00160             playerSpeed = 2.0f;}
+\DoxyCodeLine{00161         \}}
+\DoxyCodeLine{00162 }
+\DoxyCodeLine{00163         staminaBarScript.setStamina(stamina);}
+\DoxyCodeLine{00164     \}}
+\DoxyCodeLine{00165 }
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{00168     \textcolor{keyword}{private} \textcolor{keywordtype}{void} IncreaseEnergy()}
+\DoxyCodeLine{00169     \{}
+\DoxyCodeLine{00170         stamina += staminaIncrease * Time.deltaTime;}
+\DoxyCodeLine{00171 }
+\DoxyCodeLine{00172         \textcolor{keywordflow}{if}(stamina >= maxStamina)}
+\DoxyCodeLine{00173         \{}
+\DoxyCodeLine{00174             stamina = maxStamina;}
+\DoxyCodeLine{00175         \}}
+\DoxyCodeLine{00176 }
+\DoxyCodeLine{00177         staminaBarScript.setStamina(stamina);}
+\DoxyCodeLine{00178     \}}
+\DoxyCodeLine{00179 }
+\DoxyCodeLine{00185     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnCollisionEnter2D(Collision2D collision)}
+\DoxyCodeLine{00186     \{}
+\DoxyCodeLine{00187         \textcolor{keywordflow}{if}(collision.gameObject.CompareTag(\textcolor{stringliteral}{"{}Projectile"{}}))}
+\DoxyCodeLine{00188         \{}
+\DoxyCodeLine{00189             TakeDamage(1);}
+\DoxyCodeLine{00190         \}}
+\DoxyCodeLine{00191        }
+\DoxyCodeLine{00192     \}}
+\DoxyCodeLine{00193 }
+\DoxyCodeLine{00198    \textcolor{keyword}{public} \textcolor{keywordtype}{void} resetJumpingValues()}
+\DoxyCodeLine{00199    \{}
+\DoxyCodeLine{00200         cooldownTimer -\/= Time.deltaTime;}
+\DoxyCodeLine{00201         \textcolor{keywordflow}{if}(cooldownTimer <= 0)}
+\DoxyCodeLine{00202         \{}
+\DoxyCodeLine{00203             jumpForce = 12;}
+\DoxyCodeLine{00204             gravityScale = 8;}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206         \}}
+\DoxyCodeLine{00207         }
+\DoxyCodeLine{00208         Debug.Log(cooldownTimer);}
+\DoxyCodeLine{00209 }
+\DoxyCodeLine{00210    \}}
+\DoxyCodeLine{00211 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,65 @@
+\doxysection{patrol\+Behaviour.\+cs}
+\label{patrol_behaviour_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/Patrol Enemy/patrolBehaviour.cs@{DebugDaddiesDungeon/Assets/Scripts/Patrol Enemy/patrolBehaviour.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }patrolBehaviour : StateMachineBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007     \textcolor{keyword}{private} PatrolSpots patrol;}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} \textcolor{keywordtype}{float} speed;}
+\DoxyCodeLine{00009     \textcolor{keyword}{private} \textcolor{keywordtype}{int} randomSpot;}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} \textcolor{keywordtype}{float} withinRange = 6;}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012     \textcolor{keyword}{override} \textcolor{keyword}{public} \textcolor{keywordtype}{void} OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, \textcolor{keywordtype}{int} layerIndex)}
+\DoxyCodeLine{00013     \{}
+\DoxyCodeLine{00014         patrol = GameObject.FindGameObjectWithTag(\textcolor{stringliteral}{"{}PatrolSpots"{}}).GetComponent<PatrolSpots>();}
+\DoxyCodeLine{00015         randomSpot = Random.Range(0, patrol.patrolPoints.Length);}
+\DoxyCodeLine{00016     \}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00018 }
+\DoxyCodeLine{00019     \textcolor{keyword}{override} \textcolor{keyword}{public} \textcolor{keywordtype}{void} OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, \textcolor{keywordtype}{int} layerIndex)}
+\DoxyCodeLine{00020     \{}
+\DoxyCodeLine{00021         \textcolor{keywordflow}{if} (Vector2.Distance(animator.transform.position, patrol.patrolPoints[randomSpot].position) > 0.05f)}
+\DoxyCodeLine{00022         \{}
+\DoxyCodeLine{00023             animator.transform.position = Vector2.MoveTowards(animator.gameObject.transform.position, patrol.patrolPoints[randomSpot].position, speed * Time.deltaTime);}
+\DoxyCodeLine{00024         \}}
+\DoxyCodeLine{00025         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00026         \{}
+\DoxyCodeLine{00027             randomSpot = Random.Range(0, patrol.patrolPoints.Length);}
+\DoxyCodeLine{00028         \}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{00030         \textcolor{keywordflow}{if} (Vector3.Distance(animator.transform.position, PlayerFifi.instance.transform.position) < withinRange)}
+\DoxyCodeLine{00031         \{}
+\DoxyCodeLine{00032             \textcolor{comment}{/*Debug.Log("{}Player is within the distance bloody"{});}}
+\DoxyCodeLine{00033 \textcolor{comment}{            animator.gameObject.GetComponent<RangedEnemyAttack>().ShootAtPlayer();}}
+\DoxyCodeLine{00034 \textcolor{comment}{            animator.SetBool("{}isPatrolling"{}, false);}}
+\DoxyCodeLine{00035 \textcolor{comment}{            //animator.SetBool("{}attack"{}, true);*/}}
+\DoxyCodeLine{00036             animator.SetBool(\textcolor{stringliteral}{"{}isShooting"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{00037             animator.SetBool(\textcolor{stringliteral}{"{}isPatrolling"{}}, \textcolor{keyword}{false});}
+\DoxyCodeLine{00038         \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041 }
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043     \textcolor{keyword}{override} \textcolor{keyword}{public} \textcolor{keywordtype}{void} OnStateExit(Animator animator, AnimatorStateInfo stateInfo, \textcolor{keywordtype}{int} layerIndex)}
+\DoxyCodeLine{00044     \{}
+\DoxyCodeLine{00045 }
+\DoxyCodeLine{00046     \}}
+\DoxyCodeLine{00047 }
+\DoxyCodeLine{00048     \textcolor{comment}{// OnStateMove is called right after Animator.OnAnimatorMove()}}
+\DoxyCodeLine{00049     \textcolor{comment}{//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)}}
+\DoxyCodeLine{00050     \textcolor{comment}{//\{}}
+\DoxyCodeLine{00051     \textcolor{comment}{//    // Implement code that processes and affects root motion}}
+\DoxyCodeLine{00052     \textcolor{comment}{//\}}}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054     \textcolor{comment}{// OnStateIK is called right after Animator.OnAnimatorIK()}}
+\DoxyCodeLine{00055     \textcolor{comment}{//override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)}}
+\DoxyCodeLine{00056     \textcolor{comment}{//\{}}
+\DoxyCodeLine{00057     \textcolor{comment}{//    // Implement code that sets up animation IK (inverse kinematics)}}
+\DoxyCodeLine{00058     \textcolor{comment}{//\}}}
+\DoxyCodeLine{00059 \}}
+
+\end{DoxyCode}

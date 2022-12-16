@@ -1,0 +1,33 @@
+\doxysection{Battery.\+cs}
+\label{_battery_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/Battery.cs@{DebugDaddiesDungeon/Assets/Scripts/Battery.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{keyword}{public} \textcolor{keyword}{class }Battery : MonoBehaviour}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} torchcontroller torch;}
+\DoxyCodeLine{00009     \textcolor{keyword}{public} \textcolor{keywordtype}{float} batteryLife= 0;}
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00016     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnTriggerEnter2D(Collider2D collision)}
+\DoxyCodeLine{00017     \{}
+\DoxyCodeLine{00018         \textcolor{keywordflow}{if} (collision.CompareTag(\textcolor{stringliteral}{"{}Player"{}}))}
+\DoxyCodeLine{00019         \{}
+\DoxyCodeLine{00020             batteryLife = Random.Range(300.0f, 370.0f);}
+\DoxyCodeLine{00021             Debug.Log(\textcolor{stringliteral}{"{}battery grabbed"{}});}
+\DoxyCodeLine{00022             torch.lifetime += batteryLife;}
+\DoxyCodeLine{00023             torch.broken = \textcolor{keyword}{false};}
+\DoxyCodeLine{00024             \textcolor{keywordflow}{if} (torch.lifetime >= torch.maxBatteryLife)}
+\DoxyCodeLine{00025             \{}
+\DoxyCodeLine{00026                 torch.lifetime = torch.maxBatteryLife;}
+\DoxyCodeLine{00027             \}}
+\DoxyCodeLine{00028             Destroy(this.gameObject);}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031     \}}
+\DoxyCodeLine{00032 \}}
+
+\end{DoxyCode}

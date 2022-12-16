@@ -1,0 +1,85 @@
+\doxysection{Attack\+Script\+Sasa.\+cs}
+\label{_attack_script_sasa_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/AttackScriptSasa.cs@{DebugDaddiesDungeon/Assets/Scripts/AttackScriptSasa.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }AttackScriptSasa : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007     \textcolor{keyword}{public} GameObject player;}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} GameObject npc;}
+\DoxyCodeLine{00009     \textcolor{keyword}{public} PlayerFifi pl;}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} \textcolor{keywordtype}{float} playerSavedSpeed;}
+\DoxyCodeLine{00011     \textcolor{keywordtype}{bool} didPlayerAttack = \textcolor{keyword}{false};}
+\DoxyCodeLine{00012 }
+\DoxyCodeLine{00013     \textcolor{keyword}{public} Animator animator;}
+\DoxyCodeLine{00014     \textcolor{keyword}{public} \textcolor{keywordtype}{float} withinRange = 1.0f;}
+\DoxyCodeLine{00015     \textcolor{keyword}{public} \textcolor{keywordtype}{bool} NPCinRange = \textcolor{keyword}{false};}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     \textcolor{comment}{// Update is called once per frame}}
+\DoxyCodeLine{00023 \textcolor{comment}{}    \textcolor{keywordtype}{void} Update()}
+\DoxyCodeLine{00024     \{}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026         \textcolor{keywordflow}{if} (!didPlayerAttack)}
+\DoxyCodeLine{00027         \{}
+\DoxyCodeLine{00028             playerSavedSpeed = pl.playerSpeed;}
+\DoxyCodeLine{00029         \}}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031         \textcolor{keywordflow}{if} (Input.GetKeyDown(KeyCode.Mouse0))}
+\DoxyCodeLine{00032         \{}
+\DoxyCodeLine{00033             didPlayerAttack = \textcolor{keyword}{true};}
+\DoxyCodeLine{00034             animator.SetBool(\textcolor{stringliteral}{"{}attack"{}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{00035             pl.playerSpeed = 0;}
+\DoxyCodeLine{00036             StartCoroutine(attackEnd());}
+\DoxyCodeLine{00037         \}}
+\DoxyCodeLine{00038 }
+\DoxyCodeLine{00039         \textcolor{keywordflow}{if} (Input.GetKeyUp(KeyCode.Mouse0))}
+\DoxyCodeLine{00040         \{}
+\DoxyCodeLine{00041             didPlayerAttack=\textcolor{keyword}{false};}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043         \}}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045         \textcolor{keywordflow}{if} (NPCinRange)}
+\DoxyCodeLine{00046         \{}
+\DoxyCodeLine{00047             \textcolor{keywordflow}{if} (NPCinRange \&\& didPlayerAttack)}
+\DoxyCodeLine{00048             \{}
+\DoxyCodeLine{00049                 npc.gameObject.GetComponent<NPCHealth>().NPCTakesDamage(npc.gameObject.GetComponent<NPCHealth>().health, pl.GetComponent<PlayerFifi>().damage);}
+\DoxyCodeLine{00050                 Debug.Log(\textcolor{stringliteral}{"{}I was colliding while attacking!"{}});}
+\DoxyCodeLine{00051                 didPlayerAttack = \textcolor{keyword}{false};}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053             \}}
+\DoxyCodeLine{00054         \}}
+\DoxyCodeLine{00055     \}}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00061     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnTriggerEnter2D(Collider2D collision)}
+\DoxyCodeLine{00062     \{}
+\DoxyCodeLine{00063         \textcolor{keywordflow}{if} (collision.gameObject.CompareTag(\textcolor{stringliteral}{"{}NPC"{}}))}
+\DoxyCodeLine{00064         \{}
+\DoxyCodeLine{00065             npc = collision.gameObject;}
+\DoxyCodeLine{00066             NPCinRange = \textcolor{keyword}{true};}
+\DoxyCodeLine{00067         \}}
+\DoxyCodeLine{00068         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00069             NPCinRange = \textcolor{keyword}{false};}
+\DoxyCodeLine{00070     \}}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00076     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnTriggerExit2D(Collider2D collision)}
+\DoxyCodeLine{00077     \{}
+\DoxyCodeLine{00078         \textcolor{keywordflow}{if} (collision.gameObject.CompareTag(\textcolor{stringliteral}{"{}NPC"{}}))}
+\DoxyCodeLine{00079         \{}
+\DoxyCodeLine{00080             NPCinRange = \textcolor{keyword}{false};}
+\DoxyCodeLine{00081         \}}
+\DoxyCodeLine{00082     \}}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00088     IEnumerator attackEnd()}
+\DoxyCodeLine{00089     \{}
+\DoxyCodeLine{00090         yield \textcolor{keywordflow}{return} \textcolor{keyword}{new} WaitForSeconds(0.1f);}
+\DoxyCodeLine{00091         animator.SetBool(\textcolor{stringliteral}{"{}attack"{}}, \textcolor{keyword}{false});}
+\DoxyCodeLine{00092         pl.playerSpeed = playerSavedSpeed;}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094     \}}
+\DoxyCodeLine{00095 }
+\DoxyCodeLine{00096 \}}
+
+\end{DoxyCode}

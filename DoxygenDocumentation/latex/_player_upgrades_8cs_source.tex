@@ -1,0 +1,102 @@
+\doxysection{Player\+Upgrades.\+cs}
+\label{_player_upgrades_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/PlayerUpgrades.cs@{DebugDaddiesDungeon/Assets/Scripts/PlayerUpgrades.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00012 \textcolor{keyword}{public} \textcolor{keyword}{class }PlayerUpgrades : MonoBehaviour}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014     \textcolor{keyword}{public} GameObject player;}
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     \textcolor{keyword}{public} Button strengthButton;}
+\DoxyCodeLine{00017     \textcolor{keyword}{public} Button speedButton;}
+\DoxyCodeLine{00018     \textcolor{keyword}{public} Button healthButton;}
+\DoxyCodeLine{00019 }
+\DoxyCodeLine{00020     \textcolor{keywordtype}{short} strength = 0;}
+\DoxyCodeLine{00021     \textcolor{keywordtype}{short} speed = 0;}
+\DoxyCodeLine{00022     \textcolor{keywordtype}{short} health = 0;}
+\DoxyCodeLine{00023 }
+\DoxyCodeLine{00024     \textcolor{keywordtype}{bool} triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00026     \textcolor{comment}{// Need to add more upgrades}}
+\DoxyCodeLine{00031 \textcolor{comment}{}    \textcolor{keywordtype}{void} FixedUpdate()}
+\DoxyCodeLine{00032     \{}
+\DoxyCodeLine{00033         \textcolor{keywordflow}{if} (player.gameObject.GetComponent<PlayerFifi>().levelPoints >= 1)}
+\DoxyCodeLine{00034         \{}
+\DoxyCodeLine{00035             triggered = \textcolor{keyword}{true};}
+\DoxyCodeLine{00036             TriggerUpgrades();}
+\DoxyCodeLine{00037         \}}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00044     \textcolor{keywordtype}{void} TriggerUpgrades()}
+\DoxyCodeLine{00045     \{}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{if} (triggered)}
+\DoxyCodeLine{00047         \{}
+\DoxyCodeLine{00048             strengthButton.gameObject.SetActive(\textcolor{keyword}{true});}
+\DoxyCodeLine{00049             speedButton.gameObject.SetActive(\textcolor{keyword}{true});}
+\DoxyCodeLine{00050             healthButton.gameObject.SetActive(\textcolor{keyword}{true});}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052             strengthButton.onClick.AddListener(addStrengthToPlayer);}
+\DoxyCodeLine{00053             speedButton.onClick.AddListener(addMaxSpeedToPlayer);}
+\DoxyCodeLine{00054             healthButton.onClick.AddListener(addMaxHealthToPlayer);}
+\DoxyCodeLine{00055         \}}
+\DoxyCodeLine{00056     \}}
+\DoxyCodeLine{00057 }
+\DoxyCodeLine{00063     \textcolor{keywordtype}{void} addStrengthToPlayer()}
+\DoxyCodeLine{00064     \{}
+\DoxyCodeLine{00065         \textcolor{keywordflow}{if} (triggered)}
+\DoxyCodeLine{00066         \{}
+\DoxyCodeLine{00067             triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{00068             Debug.Log(\textcolor{stringliteral}{"{}STRONK"{}});}
+\DoxyCodeLine{00069             strength++;}
+\DoxyCodeLine{00070             player.gameObject.GetComponent<PlayerFifi>().levelPoints -\/= 1;}
+\DoxyCodeLine{00071             player.gameObject.GetComponent<PlayerFifi>().damage += 2;}
+\DoxyCodeLine{00072             \textcolor{comment}{// Call something to make give the player increased strength}}
+\DoxyCodeLine{00073             Debug.Log(player.gameObject.GetComponent<PlayerFifi>().damage);}
+\DoxyCodeLine{00074             removeButtons();}
+\DoxyCodeLine{00075         \}}
+\DoxyCodeLine{00076         }
+\DoxyCodeLine{00077     \}}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00084     \textcolor{keywordtype}{void} addMaxHealthToPlayer()}
+\DoxyCodeLine{00085     \{}
+\DoxyCodeLine{00086         \textcolor{keywordflow}{if} (triggered)}
+\DoxyCodeLine{00087         \{}
+\DoxyCodeLine{00088             triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{00089             Debug.Log(\textcolor{stringliteral}{"{}FATBOI"{}});}
+\DoxyCodeLine{00090             health++;}
+\DoxyCodeLine{00091             player.gameObject.GetComponent<PlayerFifi>().levelPoints -\/= 1;}
+\DoxyCodeLine{00092             player.gameObject.GetComponent<PlayerFifi>().increasePlayerMaxHealth();}
+\DoxyCodeLine{00093             \textcolor{comment}{// Call something to make give the player increased health}}
+\DoxyCodeLine{00094             Debug.Log(player.gameObject.GetComponent<PlayerFifi>().maxHealth);}
+\DoxyCodeLine{00095             removeButtons();}
+\DoxyCodeLine{00096         \}}
+\DoxyCodeLine{00097     \}}
+\DoxyCodeLine{00098 }
+\DoxyCodeLine{00104     \textcolor{keywordtype}{void} addMaxSpeedToPlayer()}
+\DoxyCodeLine{00105     \{}
+\DoxyCodeLine{00106         \textcolor{keywordflow}{if} (triggered)}
+\DoxyCodeLine{00107         \{}
+\DoxyCodeLine{00108             triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{00109             Debug.Log(\textcolor{stringliteral}{"{}SHPEEED"{}});}
+\DoxyCodeLine{00110             speed++;}
+\DoxyCodeLine{00111             player.gameObject.GetComponent<PlayerFifi>().levelPoints -\/= 1;}
+\DoxyCodeLine{00112             player.gameObject.GetComponent<PlayerFifi>().PLAYER\_SPEED\_DEFAULT += 1.0f;}
+\DoxyCodeLine{00113             \textcolor{comment}{// Call something to make give the player increased speed}}
+\DoxyCodeLine{00114             Debug.Log(player.gameObject.GetComponent<PlayerFifi>().PLAYER\_SPEED\_DEFAULT);}
+\DoxyCodeLine{00115             removeButtons();}
+\DoxyCodeLine{00116         \}}
+\DoxyCodeLine{00117     \}}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00122     \textcolor{keyword}{public} \textcolor{keywordtype}{void} removeButtons()}
+\DoxyCodeLine{00123     \{}
+\DoxyCodeLine{00124         triggered = \textcolor{keyword}{false};}
+\DoxyCodeLine{00125         strengthButton.gameObject.SetActive(\textcolor{keyword}{false});}
+\DoxyCodeLine{00126         speedButton.gameObject.SetActive(\textcolor{keyword}{false});}
+\DoxyCodeLine{00127         healthButton.gameObject.SetActive(\textcolor{keyword}{false});}
+\DoxyCodeLine{00128     \}}
+\DoxyCodeLine{00129 \}}
+
+\end{DoxyCode}

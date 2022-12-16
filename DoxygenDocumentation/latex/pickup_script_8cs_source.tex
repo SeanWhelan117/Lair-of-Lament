@@ -1,0 +1,52 @@
+\doxysection{pickup\+Script.\+cs}
+\label{pickup_script_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/pickupScript.cs@{DebugDaddiesDungeon/Assets/Scripts/pickupScript.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }pickupScript : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007 }
+\DoxyCodeLine{00008     \textcolor{keyword}{private} \textcolor{keywordtype}{bool} pickupAllowed;}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00010 }
+\DoxyCodeLine{00011     \textcolor{comment}{// Start is called before the first frame update}}
+\DoxyCodeLine{00012     \textcolor{keywordtype}{void} Start()}
+\DoxyCodeLine{00013     \{}
+\DoxyCodeLine{00014         }
+\DoxyCodeLine{00015     \}}
+\DoxyCodeLine{00016 }
+\DoxyCodeLine{00017     \textcolor{comment}{// Update is called once per frame}}
+\DoxyCodeLine{00021 \textcolor{comment}{}    \textcolor{keywordtype}{void} Update()}
+\DoxyCodeLine{00022     \{}
+\DoxyCodeLine{00023         \textcolor{keywordflow}{if} (pickupAllowed \&\& Input.GetKeyDown(KeyCode.E))}
+\DoxyCodeLine{00024             PickUp();}
+\DoxyCodeLine{00025     \}}
+\DoxyCodeLine{00026 }
+\DoxyCodeLine{00031     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnTriggerEnter2D(Collider2D collision)}
+\DoxyCodeLine{00032     \{}
+\DoxyCodeLine{00033         \textcolor{keywordflow}{if} (collision.gameObject.tag == \textcolor{stringliteral}{"{}Player"{}})}
+\DoxyCodeLine{00034         \{}
+\DoxyCodeLine{00035             Debug.Log(\textcolor{stringliteral}{"{}Collided with the Player brother"{}});}
+\DoxyCodeLine{00036             pickupAllowed = \textcolor{keyword}{true};}
+\DoxyCodeLine{00037         \}}
+\DoxyCodeLine{00038     \}}
+\DoxyCodeLine{00039 }
+\DoxyCodeLine{00044     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnTriggerExit2D(Collider2D collision)}
+\DoxyCodeLine{00045     \{}
+\DoxyCodeLine{00046         \textcolor{keywordflow}{if} (collision.gameObject.tag == \textcolor{stringliteral}{"{}Pickup"{}})}
+\DoxyCodeLine{00047         \{}
+\DoxyCodeLine{00048             Debug.Log(\textcolor{stringliteral}{"{}leaving the Player brother"{}});}
+\DoxyCodeLine{00049             pickupAllowed = \textcolor{keyword}{false};}
+\DoxyCodeLine{00050         \}}
+\DoxyCodeLine{00051     \}}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00056     \textcolor{keyword}{private} \textcolor{keywordtype}{void} PickUp()}
+\DoxyCodeLine{00057     \{}
+\DoxyCodeLine{00058         Destroy(gameObject); \textcolor{comment}{//Temp code -\/ We can do whatever we want with pickup}}
+\DoxyCodeLine{00059     \}}
+\DoxyCodeLine{00060 \}}
+
+\end{DoxyCode}

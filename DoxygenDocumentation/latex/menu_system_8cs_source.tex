@@ -1,0 +1,30 @@
+\doxysection{menu\+System.\+cs}
+\label{menu_system_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/menuSystem.cs@{DebugDaddiesDungeon/Assets/Scripts/menuSystem.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.SceneManagement;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 }
+\DoxyCodeLine{00007 \textcolor{keyword}{public} \textcolor{keyword}{class }menuSystem : MonoBehaviour}
+\DoxyCodeLine{00008 \{}
+\DoxyCodeLine{00009 }
+\DoxyCodeLine{00013     \textcolor{keyword}{public} \textcolor{keywordtype}{void} StartGame()}
+\DoxyCodeLine{00014     \{}
+\DoxyCodeLine{00015         SceneManager.LoadScene(\textcolor{stringliteral}{"{}Level"{}});}
+\DoxyCodeLine{00016     \}}
+\DoxyCodeLine{00017 }
+\DoxyCodeLine{00021     \textcolor{keyword}{public} \textcolor{keywordtype}{void} OpenSettings()}
+\DoxyCodeLine{00022     \{}
+\DoxyCodeLine{00023         SceneManager.LoadScene(\textcolor{stringliteral}{"{}Settings Scene"{}});}
+\DoxyCodeLine{00024     \}}
+\DoxyCodeLine{00025 }
+\DoxyCodeLine{00029     \textcolor{keyword}{public} \textcolor{keywordtype}{void}  QuitGame()}
+\DoxyCodeLine{00030     \{}
+\DoxyCodeLine{00031         Application.Quit();}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033 \}}
+
+\end{DoxyCode}

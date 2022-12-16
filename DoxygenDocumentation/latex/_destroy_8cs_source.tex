@@ -1,0 +1,20 @@
+\doxysection{Destroy.\+cs}
+\label{_destroy_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/Destroy.cs@{DebugDaddiesDungeon/Assets/Scripts/Destroy.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }Destroy : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00012     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnCollisionEnter2D(Collision2D collision)}
+\DoxyCodeLine{00013     \{}
+\DoxyCodeLine{00014         \textcolor{keywordflow}{if}(collision.gameObject.CompareTag(\textcolor{stringliteral}{"{}Player"{}}))}
+\DoxyCodeLine{00015         \{}
+\DoxyCodeLine{00016             Destroy(gameObject);}
+\DoxyCodeLine{00017         \}}
+\DoxyCodeLine{00018     \}}
+\DoxyCodeLine{00019 \}}
+
+\end{DoxyCode}

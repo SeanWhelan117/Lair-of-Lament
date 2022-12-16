@@ -1,0 +1,45 @@
+\doxysection{XPBar\+Script.\+cs}
+\label{_x_p_bar_script_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/XPBarScript.cs@{DebugDaddiesDungeon/Assets/Scripts/XPBarScript.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 \textcolor{keyword}{using }UnityEngine.UI;}
+\DoxyCodeLine{00005 }
+\DoxyCodeLine{00006 \textcolor{keyword}{public} \textcolor{keyword}{class }XPBarScript : MonoBehaviour}
+\DoxyCodeLine{00007 \{}
+\DoxyCodeLine{00008     \textcolor{keyword}{public} Slider slider;}
+\DoxyCodeLine{00009     \textcolor{keyword}{public} Gradient gradient;}
+\DoxyCodeLine{00010     \textcolor{keyword}{public} Image fill;}
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00016     \textcolor{keyword}{public} \textcolor{keywordtype}{void} setXP(\textcolor{keywordtype}{float} t\_XP)}
+\DoxyCodeLine{00017     \{}
+\DoxyCodeLine{00018         slider.value = t\_XP;}
+\DoxyCodeLine{00019         fill.color = gradient.Evaluate(slider.normalizedValue);}
+\DoxyCodeLine{00020     \}}
+\DoxyCodeLine{00021 }
+\DoxyCodeLine{00026     \textcolor{keyword}{public} \textcolor{keywordtype}{void} setMaxXP(\textcolor{keywordtype}{float} t\_XP)}
+\DoxyCodeLine{00027     \{}
+\DoxyCodeLine{00028         slider.maxValue = t\_XP;}
+\DoxyCodeLine{00029         slider.value = t\_XP;}
+\DoxyCodeLine{00030 }
+\DoxyCodeLine{00031         fill.color = gradient.Evaluate(1f);}
+\DoxyCodeLine{00032     \}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{00038     \textcolor{keyword}{public} \textcolor{keywordtype}{void} changeMaxValue(\textcolor{keywordtype}{int} value)}
+\DoxyCodeLine{00039     \{}
+\DoxyCodeLine{00040         slider.maxValue += value;}
+\DoxyCodeLine{00041     \}}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00046     \textcolor{keyword}{public} \textcolor{keywordtype}{void} resetMaxValue()}
+\DoxyCodeLine{00047     \{}
+\DoxyCodeLine{00048         slider.maxValue = 100;}
+\DoxyCodeLine{00049     \}}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}

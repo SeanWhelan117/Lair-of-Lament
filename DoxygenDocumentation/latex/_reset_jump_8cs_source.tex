@@ -1,0 +1,25 @@
+\doxysection{Reset\+Jump.\+cs}
+\label{_reset_jump_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/ResetJump.cs@{DebugDaddiesDungeon/Assets/Scripts/ResetJump.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00005 \textcolor{keyword}{public} \textcolor{keyword}{class }ResetJump : MonoBehaviour}
+\DoxyCodeLine{00006 \{}
+\DoxyCodeLine{00007     \textcolor{keyword}{public} PlayerFifi player;}
+\DoxyCodeLine{00008 }
+\DoxyCodeLine{00015     \textcolor{keyword}{private} \textcolor{keywordtype}{void} OnTriggerEnter2D(Collider2D collision)}
+\DoxyCodeLine{00016     \{}
+\DoxyCodeLine{00017         \textcolor{keywordflow}{if} (collision.gameObject.CompareTag(\textcolor{stringliteral}{"{}Ground"{}}))}
+\DoxyCodeLine{00018         \{}
+\DoxyCodeLine{00019             player.isGrounded = \textcolor{keyword}{true};}
+\DoxyCodeLine{00020             player.jumpCount = 0;}
+\DoxyCodeLine{00021             player.animator.SetBool(\textcolor{stringliteral}{"{}isJumping"{}}, \textcolor{keyword}{false});}
+\DoxyCodeLine{00022         \}}
+\DoxyCodeLine{00023     \}}
+\DoxyCodeLine{00024 }
+\DoxyCodeLine{00025 \}}
+
+\end{DoxyCode}

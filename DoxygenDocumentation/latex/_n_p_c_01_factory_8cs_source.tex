@@ -1,0 +1,31 @@
+\doxysection{NPC Factory.\+cs}
+\label{_n_p_c_01_factory_8cs_source}\index{DebugDaddiesDungeon/Assets/Scripts/NPC Factory.cs@{DebugDaddiesDungeon/Assets/Scripts/NPC Factory.cs}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 \textcolor{keyword}{using }System.Collections;}
+\DoxyCodeLine{00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{00003 \textcolor{keyword}{using }UnityEngine;}
+\DoxyCodeLine{00004 }
+\DoxyCodeLine{00011 }
+\DoxyCodeLine{00012 \textcolor{keyword}{public} \textcolor{keyword}{class }NPCFactory : MonoBehaviour}
+\DoxyCodeLine{00013 \{}
+\DoxyCodeLine{00014 }
+\DoxyCodeLine{00015 }
+\DoxyCodeLine{00016     \textcolor{keyword}{public} GameObject Type1NPC; \textcolor{comment}{// GRUNT}}
+\DoxyCodeLine{00017     \textcolor{keyword}{public} GameObject Type2NPC; \textcolor{comment}{// RANGED}}
+\DoxyCodeLine{00018     \textcolor{comment}{//public GameObject Type3NPC; // BRUTE}}
+\DoxyCodeLine{00019     \textcolor{comment}{//public GameObject Type4NPC; // TBD}}
+\DoxyCodeLine{00020     \textcolor{comment}{//public GameObject Type5NPC; // BOSS}}
+\DoxyCodeLine{00026 \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keywordtype}{void} SpawnType1NPC(Transform t\_transform) \textcolor{comment}{// GRUNT}}
+\DoxyCodeLine{00027     \{}
+\DoxyCodeLine{00028         \textcolor{comment}{// This currently defaults to original Prefab location (should be 0,0,0)}}
+\DoxyCodeLine{00029         Instantiate(Type1NPC, t\_transform); \textcolor{comment}{// t\_transform is passed in by the world enemy Spawner}}
+\DoxyCodeLine{00030     \}}
+\DoxyCodeLine{00031 }
+\DoxyCodeLine{00037     \textcolor{keyword}{public} \textcolor{keywordtype}{void} SpawnType2NPC(Transform t\_transform) \textcolor{comment}{// RANGED}}
+\DoxyCodeLine{00038     \{}
+\DoxyCodeLine{00039         Instantiate(Type2NPC, t\_transform); \textcolor{comment}{// t\_transform is passed in by the world enemy Spawner}}
+\DoxyCodeLine{00040     \}}
+\DoxyCodeLine{00041 \}}
+
+\end{DoxyCode}

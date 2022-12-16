@@ -1,0 +1,126 @@
+\doxysection{NPCHealth Class Reference}
+\label{class_n_p_c_health}\index{NPCHealth@{NPCHealth}}
+
+
+Used for all NPCs, Example of Factory for handling all hp for enemies Excludes Player, player is handled in player script.  
+
+
+Inheritance diagram for NPCHealth\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_n_p_c_health}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ assign\+Health\+To\+NPC} ()
+\begin{DoxyCompactList}\small\item\em Assign health checks for which layer the npc is on and then sets the health based on that. They are all on the same layer but differnet order in that layer so one function can set the damage and health of each NPC seperately. IE the grunt enemy will be on a specific layer, and their health and damage will be different to NPCs of different types  \end{DoxyCompactList}\item 
+void \textbf{ NPCTakes\+Damage} (short t\+\_\+health, short t\+\_\+damage)
+\begin{DoxyCompactList}\small\item\em Take an amount of damage from the NPCs health. Also call function to check if the NPC is dead If this is the case then \doxyref{Destroy}{p.}{class_destroy} the NPC and do the spawn\+XP from earlier.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \textbf{ npc}
+\item 
+Game\+Object \textbf{ XP}
+\item 
+short \textbf{ health}
+\item 
+short \textbf{ damage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Used for all NPCs, Example of Factory for handling all hp for enemies Excludes Player, player is handled in player script. 
+
+
+
+Definition at line \textbf{ 14} of file \textbf{ NPCHealth.\+cs}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_n_p_c_health_a90efa0966620cb8618e6a3c08c9df6f4}} 
+\index{NPCHealth@{NPCHealth}!assignHealthToNPC@{assignHealthToNPC}}
+\index{assignHealthToNPC@{assignHealthToNPC}!NPCHealth@{NPCHealth}}
+\doxysubsubsection{assignHealthToNPC()}
+{\footnotesize\ttfamily void NPCHealth.\+assign\+Health\+To\+NPC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Assign health checks for which layer the npc is on and then sets the health based on that. They are all on the same layer but differnet order in that layer so one function can set the damage and health of each NPC seperately. IE the grunt enemy will be on a specific layer, and their health and damage will be different to NPCs of different types  
+
+
+
+Definition at line \textbf{ 39} of file \textbf{ NPCHealth.\+cs}.
+
+\mbox{\label{class_n_p_c_health_ab3e1ebd56c5c5fc03d9d90ac50db4d90}} 
+\index{NPCHealth@{NPCHealth}!NPCTakesDamage@{NPCTakesDamage}}
+\index{NPCTakesDamage@{NPCTakesDamage}!NPCHealth@{NPCHealth}}
+\doxysubsubsection{NPCTakesDamage()}
+{\footnotesize\ttfamily void NPCHealth.\+NPCTakes\+Damage (\begin{DoxyParamCaption}\item[{short}]{t\+\_\+health,  }\item[{short}]{t\+\_\+damage }\end{DoxyParamCaption})}
+
+
+
+Take an amount of damage from the NPCs health. Also call function to check if the NPC is dead If this is the case then \doxyref{Destroy}{p.}{class_destroy} the NPC and do the spawn\+XP from earlier.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+\_\+health} & \\
+\hline
+{\em t\+\_\+damage} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \textbf{ 88} of file \textbf{ NPCHealth.\+cs}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{class_n_p_c_health_a3fe3447cebe302a906d0cfc490c4acc3}} 
+\index{NPCHealth@{NPCHealth}!damage@{damage}}
+\index{damage@{damage}!NPCHealth@{NPCHealth}}
+\doxysubsubsection{damage}
+{\footnotesize\ttfamily short NPCHealth.\+damage}
+
+
+
+Definition at line \textbf{ 24} of file \textbf{ NPCHealth.\+cs}.
+
+\mbox{\label{class_n_p_c_health_a1d126c615c8e7fa38a9bd245e6c45f5f}} 
+\index{NPCHealth@{NPCHealth}!health@{health}}
+\index{health@{health}!NPCHealth@{NPCHealth}}
+\doxysubsubsection{health}
+{\footnotesize\ttfamily short NPCHealth.\+health}
+
+
+
+Definition at line \textbf{ 21} of file \textbf{ NPCHealth.\+cs}.
+
+\mbox{\label{class_n_p_c_health_a0712e3de806bc2afc8d5b73a4712a23a}} 
+\index{NPCHealth@{NPCHealth}!npc@{npc}}
+\index{npc@{npc}!NPCHealth@{NPCHealth}}
+\doxysubsubsection{npc}
+{\footnotesize\ttfamily Game\+Object NPCHealth.\+npc}
+
+
+
+Definition at line \textbf{ 17} of file \textbf{ NPCHealth.\+cs}.
+
+\mbox{\label{class_n_p_c_health_a460892585862bee97614f11ef0b759fa}} 
+\index{NPCHealth@{NPCHealth}!XP@{XP}}
+\index{XP@{XP}!NPCHealth@{NPCHealth}}
+\doxysubsubsection{XP}
+{\footnotesize\ttfamily Game\+Object NPCHealth.\+XP}
+
+
+
+Definition at line \textbf{ 18} of file \textbf{ NPCHealth.\+cs}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug\+Daddies\+Dungeon/\+Assets/\+Scripts/\textbf{ NPCHealth.\+cs}\end{DoxyCompactItemize}

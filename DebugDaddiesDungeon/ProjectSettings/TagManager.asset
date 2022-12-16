@@ -15,6 +15,7 @@ TagManager:
   - Portal
   - XP
   - Spikes
+  - PatrolSpots
   layers:
   - Default
   - TransparentFX

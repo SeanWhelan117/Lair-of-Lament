@@ -22,6 +22,10 @@ public class RangedEnemyAttack : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Checks if the player is close enought to shoot at
+    /// If this is true call shootPlayer and set the animation to attacking
+    /// </summary>
     void Update()
     {
         if(Vector3.Distance(gameObject.transform.position, PlayerFifi.instance.gameObject.transform.position) < withinRange)
@@ -33,6 +37,11 @@ public class RangedEnemyAttack : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Shoot at the player. setup cooldown between shots
+    /// Instantiate the projectile to hit the player
+    /// Move the projectile towards the players location
+    /// </summary>
     void ShootAtPlayer()
     {
         cooldownTimer -= Time.deltaTime;
@@ -46,7 +55,10 @@ public class RangedEnemyAttack : MonoBehaviour
         rbProjectile.velocity = (PlayerFifi.instance.transform.position - firepoint.position).normalized * bulletSpeed;
     }
 
-    //Debugging 
+
+    /// <summary>
+    /// Debugging. Changing gizmo colours to red of the WireSphere when the player is within the range of the enemy
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

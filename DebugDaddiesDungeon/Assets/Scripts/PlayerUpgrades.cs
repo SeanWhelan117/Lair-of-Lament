@@ -24,7 +24,10 @@ public class PlayerUpgrades : MonoBehaviour
     bool triggered = false;
 
     // Need to add more upgrades
-
+    /// <summary>
+    /// Check if the levelPoints of the player is greater than 1
+    /// If this is the case then trigger the upgrades section
+    /// </summary>
     void FixedUpdate()
     {
         if (player.gameObject.GetComponent<PlayerFifi>().levelPoints >= 1)
@@ -34,6 +37,10 @@ public class PlayerUpgrades : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set the buttons for increasing stats to active
+    /// Check for if the player clicks the buttons. If that happens add to the max of that specific stat
+    /// </summary>
     void TriggerUpgrades()
     {
         if (triggered)
@@ -48,6 +55,11 @@ public class PlayerUpgrades : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add to the players strength
+    /// remove the levelPoints. 
+    /// remove the up stat buttons 
+    /// </summary>
     void addStrengthToPlayer()
     {
         if (triggered)
@@ -64,6 +76,11 @@ public class PlayerUpgrades : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Add to the players health
+    /// remove the levelPoints. 
+    /// remove the up stat buttons 
+    /// </summary>
     void addMaxHealthToPlayer()
     {
         if (triggered)
@@ -79,6 +96,11 @@ public class PlayerUpgrades : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add to the players speed
+    /// remove the levelPoints. 
+    /// remove the up stat buttons 
+    /// </summary>
     void addMaxSpeedToPlayer()
     {
         if (triggered)
@@ -94,6 +116,9 @@ public class PlayerUpgrades : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Removes the add to stat buttons from the screen until next level up
+    /// </summary>
     public void removeButtons()
     {
         triggered = false;

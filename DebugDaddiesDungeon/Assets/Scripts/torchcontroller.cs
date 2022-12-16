@@ -28,11 +28,21 @@ public class torchcontroller : MonoBehaviour
     public PlayerFifi player;
 
     // Start is called before the first frame update
+    /// <summary>
+    /// Set the torch to off initially
+    /// </summary>
     void Start()
     {
         TorchOff = true;
 
     }
+    /// <summary>
+    /// Sets up a random chance of breaking while the torch is on and active
+    /// If the randomChance of breaking (which is small) comes true.
+    /// The lifetime of the torch is set to 0 and broken bool to true
+    /// 
+    /// Checks if the lifetime of the torch is 0. if this is true set the torch to off, lerp the colours 
+    /// </summary>
     private void FixedUpdate()
     {
 
@@ -63,6 +73,12 @@ public class torchcontroller : MonoBehaviour
 
     }
     // Update is called once per frame
+    /// <summary>
+    /// Sets up the torch and lerping for it
+    /// Just turns it on/ off when given specific  parameters
+    /// starts coroutines for this 
+    /// for example button clicks to turn it on/ off
+    /// </summary>
     void Update()
     {
         // set light color
@@ -124,7 +140,10 @@ public class torchcontroller : MonoBehaviour
 
         }
     }
-
+    /// <summary>
+    /// Fade in for the torch when turning on / off
+    /// </summary>
+    /// <returns></returns>
     IEnumerator FadeIn()
     {
         yield return new WaitForSeconds(0.1f);

@@ -14,7 +14,12 @@ public class PlayerScriptSasa : MonoBehaviour
     public short health = 100; // Base HP set for player 
     public short damage = 10; // Base damage for the player
 
-
+    /// <summary>
+    /// Player takes damage
+    /// Check if dead
+    /// If so kill
+    /// </summary>
+    /// <param name="t_damage"></param>
     public void playerTakesDamage(short t_damage) // takes in the damage, takes it away from players health
     {
         health -= t_damage;
@@ -24,6 +29,10 @@ public class PlayerScriptSasa : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Return true or false based on whether the player is dead or not
+    /// </summary>
+    /// <returns></returns>
     bool isPlayerDead() // checks if the player is dead
     {
         if (health <= 0)

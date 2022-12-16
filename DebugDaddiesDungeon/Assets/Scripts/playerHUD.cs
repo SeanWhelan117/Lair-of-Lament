@@ -36,6 +36,12 @@ public class playerHUD : MonoBehaviour
 
     private float cooldownTimer = 5;
 
+    /// <summary>
+    /// set the CurrentHealth to max at the start
+    /// Change the healthbar to represent this
+    /// Same thing with Stamina
+    /// set the rigidbody of the Player and then set the hud around that
+    /// </summary>
     void Start()
     {
         currentHealth = maxHealth;
@@ -49,6 +55,11 @@ public class playerHUD : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// Getting players playerInput and then do a range of things based on that.
+    /// Decrease the players Energy, set their aniamtions to the correct ones 
+    /// Increase energy, handle jumping and jump timers etc
+    /// </summary>
     void Update()
     {
         ////////////////////////////////////////////////////////////////////////////            <<--------- MOVEMENT
@@ -123,12 +134,19 @@ public class playerHUD : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Take damage and then set the healthbar to represent that
+    /// </summary>
+    /// <param name="t_damage"></param>
     public void TakeDamage(int t_damage)
     {
         currentHealth -= t_damage;
         healthbar.setHealth(currentHealth);
     }
 
+    /// <summary>
+    /// Decrease the players energy and change the plauyer speed and stamina bar to represent this 
+    /// </summary>
     private void DecreaseEnergy()
     {
         if(stamina != 0.0f)
@@ -145,6 +163,8 @@ public class playerHUD : MonoBehaviour
         staminaBarScript.setStamina(stamina);
     }
 
+    /// Increase the players energy and change the stamina bar to represent this 
+
     private void IncreaseEnergy()
     {
         stamina += staminaIncrease * Time.deltaTime;
@@ -157,6 +177,11 @@ public class playerHUD : MonoBehaviour
         staminaBarScript.setStamina(stamina);
     }
 
+    /// <summary>
+    /// Check for collision with Projectile
+    /// If its true, take damage
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Projectile"))
@@ -166,6 +191,10 @@ public class playerHUD : MonoBehaviour
        
     }
 
+    /// <summary>
+    /// reset the jumping values of the player after the coodown timer
+    /// Both jumpforce and gravity scale are set 
+    /// </summary>
    public void resetJumpingValues()
    {
         cooldownTimer -= Time.deltaTime;

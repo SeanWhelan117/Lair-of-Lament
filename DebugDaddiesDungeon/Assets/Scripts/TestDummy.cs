@@ -18,6 +18,12 @@ public class TestDummy : MonoBehaviour
 
 
     // Used for testing any collisions with the enemy
+    /// <summary>
+    /// Check collision with player
+    /// Just a test dummy to check player collisions
+    /// For Debugging
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

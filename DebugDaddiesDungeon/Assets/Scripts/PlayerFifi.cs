@@ -56,6 +56,11 @@ public class PlayerFifi : MonoBehaviour
 
     public static PlayerFifi instance = null;
 
+    /// <summary>
+    /// On awake it checks if the player has an instance allready.
+    /// if this is the case then the instance gameobject is removed.
+    /// This ensures that the player is a singleton and just one exists at a time.
+    /// </summary>
     void Awake()
     {
         if(instance == null)
@@ -68,6 +73,14 @@ public class PlayerFifi : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the variable neccessary for the player by calling the required functions.
+    /// Xp bar 
+    /// Health bar
+    /// Stamina bar
+    /// and the level text 
+    /// are all set up by calling their various functions
+    /// </summary>
     void Start()
     {
         
@@ -92,6 +105,18 @@ public class PlayerFifi : MonoBehaviour
     }
 
     // Update is called once per frame
+    /// <summary>
+    /// On update sets the animations of the player given the way the player is facing/ moving
+    /// decresases the players stamina when movements are made
+    /// Adds to the players stamina when they are percieved as standing still
+    /// Set the players speed back to its default when their stamina is over or equal to 10
+    /// Deals with the allowing the player to jump or not and then jumping the player
+    /// sets the xpBar and stamina bar
+    /// sets up a coroutine for if the player is killed.
+    /// Runs said coroutine in the event of that happening
+    /// Sets up leveling up for the player based on the XP that they have.
+    /// Handles these levelups
+    /// </summary>
     void Update()
     {
         ////////////////////////////////////////////////////////////////////////////            <<--------- MOVEMENT
@@ -227,6 +252,12 @@ public class PlayerFifi : MonoBehaviour
         //Debug.Log(level);
     }
 
+    /// <summary>
+    /// takes in t_damage as a parameter and removes that from the players current health
+    /// Sets the value of the healthbar UI based on the new health amount
+    /// calls function which returns true if the player is killed
+    /// </summary>
+    /// <param name="t_damage"></param>
     public void TakeDamage(int t_damage)
     {
         currentHealth -= t_damage;
@@ -239,6 +270,12 @@ public class PlayerFifi : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the player is killed
+    /// if health is less than or equal to 0 return true
+    /// else return false
+    /// </summary>
+    /// <returns></returns>
     bool isPlayerDead() // checks if the player is dead
     {
         if (currentHealth <= 0)
@@ -246,6 +283,11 @@ public class PlayerFifi : MonoBehaviour
         else
             return false;
     }
+
+    /// <summary>
+    /// Increase the max health of the player and set the players max health to this 
+    /// this is one of the Upgrades with level up
+    /// </summary>
     public void increasePlayerMaxHealth()
     {      
         maxHealth += 1;
@@ -253,6 +295,11 @@ public class PlayerFifi : MonoBehaviour
         healthbar.setMaxHealth(maxHealth);
     }
 
+    /// <summary>
+    /// Handles the decreasing of energy of the player
+    /// This includes stamina drain over time and changing the player speed based on this
+    /// the stamina bar is updated to reflect this change
+    /// </summary>
     private void DecreaseEnergy()
     {
         if (stamina != 0.0f)
@@ -269,6 +316,10 @@ public class PlayerFifi : MonoBehaviour
         staminaBarScript.setStamina(stamina);
     }
 
+    /// <summary>
+    /// Decrease the energy/ stamina which the player has by a lot because they have done a jump
+    /// Also changes player speed if the stamina is very low
+    /// </summary>
     private void DecreaseEnergyJump()
     {
         if (stamina != 0.0f)
@@ -284,6 +335,11 @@ public class PlayerFifi : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// increase the energy of the player over time, up to the max energy / stamina possible
+    /// the stamina bar script is used to reflect this
+    /// This function is called when the player is standing still
+    /// </summary>
     private void IncreaseEnergy()
     {
         stamina += staminaIncrease * Time.deltaTime;
@@ -296,6 +352,12 @@ public class PlayerFifi : MonoBehaviour
         staminaBarScript.setStamina(stamina);
     }
 
+    /// <summary>
+    /// Checks collision with the projectile / NPC / XP / Spikes for the player and does accordingly
+    /// For the NPC / Projectile / Spikes  the player calls the take damage function and passes an amount of damage
+    /// For the XP the players current XP increases and the function for setting the XPbar to reflect this is called
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
@@ -324,7 +386,9 @@ public class PlayerFifi : MonoBehaviour
 
     }
 
-    //This function resets the values for jumping back to default after the 5 second timer.
+    /// <summary>
+    /// This function resets the values for jumping back to default after the 5 second timer.
+    /// </summary>
     public void resetJumpingValues()
     {
         cooldownTimer -= Time.deltaTime;
@@ -339,7 +403,9 @@ public class PlayerFifi : MonoBehaviour
         
     }
 
-    //Function which resets the timer for the double jump pickups.
+    /// <summary>
+    /// resets the timer for the double jump pickups.
+    /// </summary>
     public void resetTimer()
     {
         cooldownTimer = 5;

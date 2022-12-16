@@ -58,7 +58,7 @@ public class NPCHealth : MonoBehaviour
 
         if (npc.layer == 13) // 13th layer is BOSS !!!!DO NOT EDIT!!!!
         {
-            damage = 15;
+            damage = 0;
             health = 50;
         }
     }

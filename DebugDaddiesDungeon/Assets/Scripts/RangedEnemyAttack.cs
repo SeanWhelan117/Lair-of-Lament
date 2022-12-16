@@ -9,7 +9,7 @@ public class RangedEnemyAttack : MonoBehaviour
     public GameObject Projectile;
     public Transform firepoint;
     public Animator anim;
-    [SerializeField] private float cooldown = 3;
+    [SerializeField] private float cooldown = 1;
     private float cooldownTimer;
     int bulletSpeed = 6;
 
@@ -42,7 +42,8 @@ public class RangedEnemyAttack : MonoBehaviour
     /// Instantiate the projectile to hit the player
     /// Move the projectile towards the players location
     /// </summary>
-    void ShootAtPlayer()
+
+    public void ShootAtPlayer()
     {
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer > 0) return; //Making sure we dont fire until the timer is at 0 
